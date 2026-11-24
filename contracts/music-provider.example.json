@@ -1,0 +1,32 @@
+{
+  "provider": "suno",
+  "preferred_transport": "official_mcp",
+  "mcp_url": "https://api.suno.com/mcp",
+  "auth": "owner_oauth",
+  "controller": "agy",
+  "creative_agent": "codex",
+  "technical_agent": "deepseek_harness",
+  "delegation_requires_approval": true,
+  "reported_plan": "pro",
+  "plan_verified": false,
+  "live_enabled": false,
+  "authorized_phase": 2,
+  "owner_approval_required": true,
+  "credit_budget": null,
+  "download_budget": null,
+  "max_attempts": null,
+  "rest": {
+    "enabled": false,
+    "endpoint": null,
+    "billing_verified": false,
+    "allowed_in_baseline": false
+  },
+  "fallback": "owner_manual_suno_download",
+  "automatic_paid_fallback": false,
+  "runtime_generation": false,
+  "preserve_native_dialogue": true,
+  "rights_review_required": true,
+  "missing_bgm": "silence",
+  "verified": false,
+  "selected_transport": "official_mcp"
+}

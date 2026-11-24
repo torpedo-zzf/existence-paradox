@@ -1,0 +1,84 @@
+{
+  "controller": "agy",
+  "workers": [
+    "codex",
+    "deepseek_harness"
+  ],
+  "capabilities": {
+    "image_generation": {
+      "producer": "codex_imagegen",
+      "agent": "codex",
+      "status": "unverified",
+      "live_enabled": false,
+      "fallback": "owner_manual_chatgpt_imagegen"
+    },
+    "image_editing": {
+      "producer": "codex_imagegen",
+      "agent": "codex",
+      "status": "unverified",
+      "live_enabled": false,
+      "fallback": "owner_manual_chatgpt_imagegen"
+    },
+    "video_generation": {
+      "producer": "metaso_minimax_h3_direct",
+      "provider": "metaso",
+      "agent": "agy",
+      "creative_agent": "codex",
+      "status": "unverified",
+      "live_enabled": false,
+      "fallback": "approved_stills_and_subtitles",
+      "reference_transport": "aliyun_oss_presigned_get",
+      "native_audio_required": true,
+      "audio_reference_status": "unverified"
+    },
+    "native_openai_video": {
+      "status": "not_assumed",
+      "live_enabled": false
+    },
+    "nano_banana_edit": {
+      "agent": "agy",
+      "producer": "agy_nano_banana",
+      "status": "unverified",
+      "live_enabled": false
+    },
+    "qwen_image": {
+      "agent": "deepseek_harness",
+      "producer": "comfyui_qwen_image_2_1",
+      "status": "unverified",
+      "live_enabled": false
+    },
+    "oss_staging": {
+      "agent": "agy",
+      "producer": "aliyun_oss_presigned_get",
+      "status": "unverified",
+      "live_enabled": false
+    },
+    "voice": {
+      "agent": "agy",
+      "producer": "omnivoice",
+      "status": "unverified",
+      "live_enabled": false,
+      "stage": "before_speaking_video",
+      "canonical_voice_required": true,
+      "runtime_npc_separate": true
+    },
+    "media_qc": {
+      "agent": "deepseek_harness",
+      "producer": "ffmpeg",
+      "status": "unverified",
+      "live_enabled": false
+    },
+    "bgm_generation": {
+      "agent": "agy",
+      "producer": "suno",
+      "transport": "official_mcp",
+      "status": "unverified",
+      "live_enabled": false,
+      "fallback": "owner_manual_suno_download"
+    }
+  },
+  "phase0": "offline_inventory_only",
+  "live_media_phase": 2,
+  "owner_approval_required": true,
+  "automatic_paid_fallback": false
+}

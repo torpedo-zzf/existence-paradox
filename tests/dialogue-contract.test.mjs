@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {validateDialogue, chooseDialogue} from '../src/dialogue-contract.mjs';
+const facts=['known_identity']; const intents=['answer','refuse'];
+const good={utterance:'I cannot verify your identity.',intent:'answer',referencedFactIds:['known_identity']};
+const fallback='No answer available.';
+test('accept bounded dialogue',()=>assert.equal(validateDialogue(good,facts,intents),true));
+test('reject hidden facts',()=>assert.equal(chooseDialogue({...good,referencedFactIds:['hidden']},facts,intents,fallback),fallback));
+test('reject state writes',()=>assert.equal(chooseDialogue({...good,state:{ending:'win'}},facts,intents,fallback),fallback));
+test('reject unsupported intent',()=>assert.equal(chooseDialogue({...good,intent:'unlock'},facts,intents,fallback),fallback));
+test('reject absent or oversized output',()=>{for(const value of [null,[],{...good,utterance:'x'.repeat(601)}])assert.equal(chooseDialogue(value,facts,intents,fallback),fallback);});

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "development": {
+    "lead": "agy",
+    "worker": "deepseek_harness",
+    "enabled": false,
+    "authorization_required": true,
+    "creative_worker": "codex",
+    "creative_worker_enabled": false
+  },
+  "runtime": {
+    "default_provider": "mock",
+    "preferred_live_provider": "deepseek_api",
+    "live_enabled": false,
+    "authorized_phase": 3,
+    "model_id": null,
+    "endpoint": null,
+    "budget_approved": false,
+    "session_cost_cap": null,
+    "max_turns": 8,
+    "max_output_tokens": 256,
+    "timeout_ms": 8000,
+    "fallback": "authored_dialogue",
+    "state_authority": "deterministic_engine",
+    "credentials_location": "server_only"
+  }
+}

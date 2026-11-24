@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {workerCommand,validReply,probe} from '../scripts/agent-bridge.mjs';
+const token='EP_test';
+const event=JSON.stringify({type:'item.completed',item:{type:'agent_message',text:token}});
+test('Codex uses read-only JSON mode',()=>{const [cmd,args]=workerCommand('codex',token);assert.equal(cmd,'codex');assert.ok(args.includes('read-only'));assert.ok(args.includes('--json'));});
+test('DeepSeek uses read-only noninteractive headless mode',()=>{const [cmd,args]=workerCommand('deepseek',token);assert.equal(cmd,'dsh');assert.ok(args.includes('headless'));assert.ok(args.includes('read-only'));assert.ok(args.includes('never'));});
+test('exact worker receipts required',()=>{assert.equal(validReply('codex',{status:0,stdout:event},token),true);assert.equal(validReply('deepseek',{status:0,stdout:token+'\n'},token),true);assert.equal(validReply('codex',{status:0,stdout:'{}'},token),false);assert.equal(validReply('deepseek',{status:0,stdout:'not '+token},token),false);});
+test('nonzero exit, errors, and invalid events fail closed',()=>{assert.equal(validReply('codex',{status:1,stdout:event},token),false);assert.equal(validReply('codex',{status:0,stdout:'not json'},token),false);assert.equal(validReply('deepseek',{status:0,error:Error('timeout'),stdout:token},token),false);});
+test('adapter uses bounded execution and strips common API credentials',()=>{const result=probe('deepseek',token,'/tmp',(cmd,args,opts)=>{assert.equal(cmd,'dsh');assert.equal(opts.cwd,'/tmp');assert.equal(opts.timeout,120000);assert.equal(opts.env.METASO_API_KEY,undefined);assert.equal(opts.env.DEEPSEEK_API_KEY,undefined);return {status:0,stdout:token};});assert.equal(result.passed,true);});

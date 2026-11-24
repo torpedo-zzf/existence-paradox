@@ -1,0 +1,347 @@
+{
+  "authorized_phase": 0,
+  "tasks": [
+    {
+      "id": "INIT-001",
+      "phase": 0,
+      "depends_on": [],
+      "owner_role": "lead",
+      "write_paths": [
+        "README.md",
+        "START_HERE.md",
+        "docs/",
+        "orchestration/",
+        "contracts/",
+        "episodes/",
+        "src/",
+        "tests/",
+        "scripts/",
+        "package.json",
+        "AGENTS.md",
+        ".gitignore",
+        ".env.example",
+        "AGY_PROMPT.txt",
+        "media/"
+      ],
+      "acceptance": [
+        "Inspect actual environment and directory",
+        "npm run verify exits 0",
+        "Report Git status, optional tool availability, blockers and next steps",
+        "No paid calls, external changes or automatic commit",
+        "Verify visual handoff contract and fixture; no media generation",
+        "Verify DeepSeek disabled defaults and offline dialogue contract; no calls or worker activation",
+        "Verify Metaso provider lock, disabled paid calls, and redacted offline direct API and OSS configuration inspection",
+        "Report separate image generation/editing and video generation capabilities using the capability register; distinguish installed, verified and blocked; no media calls",
+        "Confirm Codex and DeepSeek Harness are planned workers under agy; preserve independent Phase 0.5 gate",
+        "Inventory ImageGen, Nano Banana, Qwen-Image-2.1 local workflow, OSS and direct Metaso separately; no external calls",
+        "Validate voice-first native AV contracts and dependency gates offline",
+        "Inventory Suno official MCP/REST/manual-export configuration offline; no OAuth, credit use, download or API call; verify music contract and task dependencies."
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "CORE-101",
+      "phase": 1,
+      "depends_on": [
+        "INIT-001"
+      ],
+      "owner_role": "lead/runtime",
+      "write_paths": [
+        "src/core/",
+        "src/engine.mjs",
+        "src/storage/",
+        "tests/core/"
+      ],
+      "acceptance": [
+        "Deterministic scene choices and guard tests",
+        "Versioned save/reload/reset with corrupt-save recovery"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "UI-102",
+      "phase": 1,
+      "depends_on": [
+        "CORE-101"
+      ],
+      "owner_role": "lead/frontend",
+      "write_paths": [
+        "src/player/",
+        "public/",
+        "index.html",
+        "tests/ui/"
+      ],
+      "acceptance": [
+        "Local browser player supports desktop and mobile",
+        "Subtitles, choices, evidence journal, media fallback and keyboard/touch"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "STORY-103",
+      "phase": 1,
+      "depends_on": [
+        "INIT-001"
+      ],
+      "owner_role": "lead/narrative",
+      "write_paths": [
+        "episodes/01/",
+        "docs/story/"
+      ],
+      "acceptance": [
+        "3–5 minute authored slice",
+        "Two meaningful outcomes, clue and replay path",
+        "Owner reviews narrative before locking"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "SLICE-104",
+      "phase": 1,
+      "depends_on": [
+        "CORE-101",
+        "UI-102",
+        "STORY-103"
+      ],
+      "owner_role": "lead/integration",
+      "write_paths": [
+        "tests/integration/",
+        "docs/reports/"
+      ],
+      "acceptance": [
+        "Offline end-to-end demo with placeholder assets",
+        "No network required for core play",
+        "Record browser/mobile test evidence and obtain owner sign-off"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "VIS-201",
+      "phase": 2,
+      "depends_on": [
+        "SLICE-104"
+      ],
+      "owner_role": "codex",
+      "write_paths": [
+        "docs/media/look-bible/",
+        "episodes/01/media-requests.json"
+      ],
+      "acceptance": [
+        "Create original visual bible, actor/location IDs, shot list and English prompts; owner approves references and scope",
+        "No external generation without specific approval"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "IMG-202",
+      "phase": 2,
+      "depends_on": [
+        "VIS-201"
+      ],
+      "owner_role": "codex",
+      "write_paths": [
+        "assets/inbox/",
+        "docs/media/handoffs/images/"
+      ],
+      "acceptance": [
+        "Verify actual Codex ImageGen generation and edit access, entitlement and authorized usage",
+        "Produce approved actor references, locations, storyboard and keyframes; include actual files, hashes, source and continuity review",
+        "If Codex image tool unavailable, report blocked; owner may manually supply ChatGPT ImageGen files with provenance; no paid alternative automatically"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "IMG-205",
+      "phase": 2,
+      "depends_on": [
+        "IMG-202"
+      ],
+      "owner_role": "lead/media",
+      "write_paths": [
+        "assets/inbox/nano-banana/",
+        "docs/media/handoffs/nano-banana/"
+      ],
+      "acceptance": [
+        "Prove Nano Banana edit with canonical references, real artifact and owner-approved usage; no silent fallback"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "IMG-206",
+      "phase": 2,
+      "depends_on": [
+        "IMG-202"
+      ],
+      "owner_role": "deepseek_harness",
+      "write_paths": [
+        "assets/inbox/qwen/",
+        "docs/media/handoffs/qwen/"
+      ],
+      "acceptance": [
+        "Verify local Qwen-Image-2.1 ComfyUI workflow; produce approved auxiliary asset and hash; no H3 calls"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "VOICE-208",
+      "phase": 2,
+      "depends_on": [
+        "VIS-201"
+      ],
+      "owner_role": "lead/media",
+      "write_paths": [
+        "assets/inbox/voice/",
+        "docs/media/handoffs/voice/",
+        "providers/voice/",
+        "tests/voice/"
+      ],
+      "acceptance": [
+        "Codex defines approved voice bible and shot dialogue; agy validates local OmniVoice, produces original or consented canonical voice clips and records hash, transcript, model revision and rights",
+        "WAV/MP3 speech references 2–15s each, max 3 clips and 15s total per request; verify actual Metaso limits; no paid calls",
+        "No final speaking video before approved voice assets"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "OSS-207",
+      "phase": 2,
+      "depends_on": [
+        "IMG-205",
+        "IMG-206",
+        "VOICE-208"
+      ],
+      "owner_role": "lead/media",
+      "write_paths": [
+        "providers/oss/",
+        "tests/oss/",
+        "docs/media/handoffs/oss/"
+      ],
+      "acceptance": [
+        "Implement and mock-test official SDK staging adapter; owner approves bucket, uploads, cost, lifetime and access",
+        "Verify private scoped staging, signed HTTPS GET, deduplication, expiry and cleanup; signed URLs must not persist; real Metaso acceptance checked in VID-203",
+        "Stage approved audio as well as images, verify MIME, signed GET and retention; no audio upload before rights approval"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "VID-203",
+      "phase": 2,
+      "depends_on": [
+        "OSS-207"
+      ],
+      "owner_role": "lead/media",
+      "write_paths": [
+        "assets/generated/video/",
+        "docs/media/handoffs/video/"
+      ],
+      "acceptance": [
+        "agy implements and mock-tests direct Metaso HTTP adapter; no ComfyUI video. Codex provides approved shot prompts and reviews previews.",
+        "Before any live job verify Metaso provider, actual pricing, budget, upload approval and attempt cap",
+        "Produce a short approved 768P pilot first; final 2K only if approved; record job IDs and actual media files; no silent retry/fallback",
+        "Persist intent and task ID; reconcile ambiguous submissions; bounded polling and verified local download; never log signed URLs or tokens",
+        "Speaking pilot uses reference_image + reference_audio, native audio enabled; confirm Metaso schema; no first/last frame mixing or post-dub fallback; require VOICE-208 and validated audio access"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "QC-204",
+      "phase": 2,
+      "depends_on": [
+        "VID-203"
+      ],
+      "owner_role": "deepseek_harness",
+      "write_paths": [
+        "scripts/media-qc/",
+        "tests/media/",
+        "docs/media/qc/"
+      ],
+      "acceptance": [
+        "Check files, hashes, codec, dimensions, duration, missing IDs and fallback via FFmpeg/ffprobe; no paid calls",
+        "Report reproducible results; Codex and agy review visual continuity separately",
+        "Check native audio stream, transcript, duration and continuity; Codex and owner review lip sync, timbre and speaker consistency; reject failed shots; preserve native speech"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "BGM-209",
+      "phase": 2,
+      "depends_on": [
+        "VIS-201"
+      ],
+      "owner_role": "lead/media",
+      "write_paths": [
+        "assets/inbox/music/",
+        "docs/media/handoffs/music/",
+        "providers/music/",
+        "episodes/01/music-cues.json",
+        "tests/music/"
+      ],
+      "acceptance": [
+        "Codex supplies original instrumental cue plan; agy validates official Suno MCP OAuth or approved manual export; no unofficial API or REST by default",
+        "Owner approves subscription credit/download limits and attempt caps before any generation; verify actual plan and rights",
+        "Approved local audio, song ID, SHA-256, provenance, creation/download dates and actual or unknown usage; no fake results; missing entitlement blocks generation but offline prototype remains playable"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "MIX-210",
+      "phase": 2,
+      "depends_on": [
+        "BGM-209",
+        "QC-204"
+      ],
+      "owner_role": "deepseek_harness",
+      "write_paths": [
+        "scripts/music-qc/",
+        "assets/generated/music/",
+        "docs/media/mix/",
+        "tests/music-mix/"
+      ],
+      "acceptance": [
+        "Decode and loop tests, no clipping, approved cue timing and music ducking; preserve native H3 speech and ambience; no forced post-dub",
+        "Separate local score, no duplicate baked score, Codex creative review and owner approval; verify missing-score silence fallback and no runtime music generation"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "MEDIA-201",
+      "phase": 2,
+      "depends_on": [
+        "QC-204",
+        "MIX-210"
+      ],
+      "owner_role": "lead/media",
+      "write_paths": [
+        "episodes/01/media-manifest.json",
+        "docs/media/release/"
+      ],
+      "acceptance": [
+        "agy integrates approved images and videos with authored fallback; owner approves release assets",
+        "Record rights, provenance and actual costs; prove local playback and no media generation at runtime",
+        "Integrate approved deterministic BGM cue sheet, local music, dialogue ducking and desktop/mobile audio lifecycle; release requires BGM gate or explicit owner waiver."
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AI-301",
+      "phase": 3,
+      "depends_on": [
+        "MEDIA-201"
+      ],
+      "owner_role": "lead/ai",
+      "write_paths": [
+        "providers/",
+        "tests/providers/"
+      ],
+      "acceptance": [
+        "Mock first, schema checked bounded dialogue",
+        "Provider failure and attempted state mutation tests",
+        "Owner approves real calls and voice use",
+        "Verify DeepSeek model ID, endpoint, costs and authorization; mock remains default until approved",
+        "Server-only credentials; bounded request and session budget; fail closed; authored fallback on timeout, quota or invalid output",
+        "Prove DeepSeek cannot mutate authoritative game state"
+      ],
+      "status": "pending"
+    }
+  ]
+}

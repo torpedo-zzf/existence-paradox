@@ -1,0 +1,111 @@
+{
+  "id": "ep01-opening",
+  "version": 1,
+  "startScene": "wake",
+  "evidence": [
+    {
+      "id": "death_notice",
+      "label": "死亡登记通知"
+    },
+    {
+      "id": "witness_statement",
+      "label": "林的证词"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "wake",
+      "text": "手机亮起：你的身份已于三天前注销，原因：死亡。",
+      "choices": [
+        {
+          "id": "inspect",
+          "label": "查看死亡登记",
+          "target": "inspect",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [
+              "death_notice"
+            ],
+            "trustDelta": 0
+          }
+        },
+        {
+          "id": "call",
+          "label": "联系林",
+          "target": "call",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "inspect",
+      "text": "登记时间与记忆中的日期冲突。来电显示：林。",
+      "choices": [
+        {
+          "id": "save",
+          "label": "保存证据",
+          "target": "archive",
+          "requiresEvidence": [
+            "death_notice"
+          ],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 0
+          }
+        },
+        {
+          "id": "call_after",
+          "label": "接听电话",
+          "target": "call",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "call",
+      "text": "林说：你不是刚刚才出门吗？电话另一端传来熟悉的声音。",
+      "choices": [
+        {
+          "id": "ask",
+          "label": "保存林的证词",
+          "target": "archive",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [
+              "witness_statement"
+            ],
+            "trustDelta": 0
+          }
+        },
+        {
+          "id": "meet",
+          "label": "约林见面",
+          "target": "meeting",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "text": "证据已存档。屏幕出现陌生通知：请勿再次查询自己的身份。",
+      "choices": []
+    },
+    {
+      "id": "meeting",
+      "text": "林发来地址。附带一条消息：不要让另一个你知道。",
+      "choices": []
+    }
+  ]
+}

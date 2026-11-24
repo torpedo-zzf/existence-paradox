@@ -1,0 +1,46 @@
+{
+  "provider": "metaso",
+  "model": "MiniMax-H3",
+  "transport": "direct_http",
+  "base_url": "https://metaso.cn/api/minimax",
+  "credential_env": "METASO_API_KEY",
+  "enabled": false,
+  "authorized_phase": 2,
+  "budget_approved": false,
+  "batch_budget_cny": null,
+  "max_attempts": null,
+  "allow_reference_upload": false,
+  "auto_retry": false,
+  "automatic_provider_fallback": false,
+  "default_draft_resolution": "768P",
+  "default_final_resolution": "2K",
+  "pricing_reference": {
+    "currency": "CNY",
+    "output_per_second": {
+      "768P": 0.09,
+      "2K": 0.15
+    },
+    "verified_for_account": false,
+    "additional_input_charges_possible": true,
+    "as_of": "2026-11-25",
+    "metaso_credit_basis_cny": 4399,
+    "metaso_credit_basis_points": 500000,
+    "official_comparison_output_per_second": {
+      "768P": 0.5,
+      "2K": 0.8
+    },
+    "official_comparison_only": true
+  },
+  "reference_transport": "aliyun_oss_presigned_get",
+  "create_path": "/v2/video_generation",
+  "query_path": "/v2/query/video_generation/{task_id}",
+  "comfyui_allowed": false,
+  "speaking_shot_mode": "reference_to_video",
+  "native_audio_required": true,
+  "reference_audio_role": "reference_audio",
+  "reference_image_role": "reference_image",
+  "mix_first_last_with_reference_audio": false,
+  "post_dub_default": false,
+  "audio_reference_support_verified": false,
+  "voice_exact_match_guaranteed": false
+}

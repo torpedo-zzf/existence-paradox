@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Visual asset request batch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "episode_id",
+    "requests"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_id",
+          "shot_id",
+          "revision",
+          "kind",
+          "producer",
+          "prompt",
+          "reference_ids",
+          "aspect_ratio",
+          "acceptance",
+          "status",
+          "paid_approval_required"
+        ],
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "kind": {
+            "enum": [
+              "character_reference",
+              "environment",
+              "storyboard",
+              "prop",
+              "keyframe",
+              "ui_concept",
+              "marketing",
+              "video",
+              "voice_reference"
+            ]
+          },
+          "producer": {
+            "enum": [
+              "codex_imagegen",
+              "comfyui_qwen_image_2_1",
+              "agy_nano_banana",
+              "metaso_minimax_h3_direct",
+              "omnivoice_local"
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "aspect_ratio": {
+            "enum": [
+              "16:9",
+              "9:16",
+              "1:1",
+              "3:4",
+              "4:3"
+            ]
+          },
+          "duration_seconds": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "acceptance": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "status": {
+            "enum": [
+              "requested",
+              "delivered",
+              "review",
+              "approved",
+              "rejected"
+            ]
+          },
+          "paid_approval_required": {
+            "type": "boolean"
+          },
+          "video_provider": {
+            "const": "metaso"
+          },
+          "audio_mode": {
+            "enum": [
+              "native_ambience",
+              "native_reference_dialogue"
+            ]
+          },
+          "voice_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dialogue_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "audio_reference_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "maxItems": 3,
+            "uniqueItems": true
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "video"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "duration_seconds",
+                "video_provider",
+                "audio_mode"
+              ],
+              "properties": {
+                "producer": {
+                  "const": "metaso_minimax_h3_direct"
+                },
+                "paid_approval_required": {
+                  "const": true
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "producer": {
+                  "enum": [
+                    "codex_imagegen",
+                    "comfyui_qwen_image_2_1",
+                    "agy_nano_banana",
+                    "omnivoice_local"
+                  ]
+                }
+              },
+              "not": {
+                "required": [
+                  "video_provider"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "voice_reference"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "voice_id",
+                "duration_seconds",
+                "dialogue_text"
+              ],
+              "properties": {
+                "producer": {
+                  "const": "omnivoice_local"
+                },
+                "duration_seconds": {
+                  "minimum": 2,
+                  "maximum": 15
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "producer": {
+                  "not": {
+                    "const": "omnivoice_local"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "audio_mode"
+              ],
+              "properties": {
+                "audio_mode": {
+                  "const": "native_reference_dialogue"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "audio_reference_ids",
+                "dialogue_text"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "video"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

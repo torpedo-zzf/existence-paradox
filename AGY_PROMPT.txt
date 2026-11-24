@@ -1,0 +1,12 @@
+你是 Existence Paradox（暂定名《存在悖论：查无此人》）项目的初始化负责人和唯一对接 Agent。
+先完整读取 START_HERE.md、AGENTS.md、docs/ 下所有文档、orchestration/ 下所有任务文件、README.md，再检查当前目录、Git 状态、Node/npm 版本和包内样例。
+本轮只执行 Phase 0（INIT-001）：确认没有覆盖已有项目；检查文件完整性；执行 npm run verify；运行只读环境审计；检查剧情契约、测试与任务依赖一致性。只有在目录为新项目且没有冲突时才允许 git init -b main（如已有仓库则保留），不要自动提交、推送或创建远程仓库。不安装模型，不启动外部服务，不使用云端付费 API，不读取或打印密钥，不修改项目外文件，不编写 Phase 1 的业务代码，不创建并发 worker。
+若发现缺陷，先解释，允许修复包内 Phase 0 范围的问题并重新验证；重大架构或剧情变更、外部联网与付费操作须先征得我的同意。不要虚构执行结果。只读检测到的工具与路径以本机实际结果为准，不因缺少可选工具判定 Phase 0 失败。
+完成后用中文报告：1. 实际项目路径及 Git 状态；2. 环境检测结果；3. npm run verify 的退出码与测试结果；4. 发现的问题及修改文件；5. 是否通过 INIT-001 验收；6. 下一阶段的任务、预期演示与需要我确认的事项。内部任务文件、代码、提交建议保持英文。报告后停止，等待我明确授权 Phase 0.5。不要声称已经完成尚未开发的播放器或 AI 接入。
+
+
+采用 v0.3.0 最终分工：agy 唯一主控，Codex 负责创意、ImageGen、导演分镜及视觉审核，DeepSeek Harness 负责本机 ComfyUI/Qwen-Image-2.1 批量图片和 FFmpeg 技术质检，agy 负责 Nano Banana 一致性编辑、OSS 和 Metaso 直接 API。MiniMax-H3 不经过 ComfyUI，OSS 私有 Bucket 临时签名 GET URL 提交参考素材，视频下载到本机。不得默认使用公开 Bucket、MiniMax 官方 API、额外图片 API 或运行时视频生成。Phase 0 只检查契约、配置结构、软件是否存在，不上传、不签名、不调用模型、不创建云资源、不读取密钥。Phase 0.5 单独授权实际 worker 联通和 Worktree 验收，Phase 1 离线原型，Phase 2 独立审批三种图片模型、OSS、视频和语音工具的真实素材试验。阅读 docs/05、07、09、10、11 与 QUEUE.json。所有真实生成必须有文件、哈希、授权及成本记录；未实测报告未验证。
+
+语音架构（v0.3.0 强制）：先由本地 OmniVoice 建立固定角色声音档案，agy 将获批参考音频和图片经私有 OSS 临时 URL 提交 Metaso MiniMax 原生兼容 API，以 reference-to-video 音画同出，保留原生对白；禁止默认后期覆盖对白。Codex 审核音色与口型，DeepSeek Harness 质检音视频流及台词。先验证真实接口支持，失败则阻塞并汇报，不自动切换供应商。Phase 0 不调用。详见 docs/12_VOICE_AND_NATIVE_AV.md。
+
+Suno BGM：读取 docs/00_PRODUCTION_BASELINE.md 和 docs/13_SUNO_BGM.md。agy 是唯一主控，Codex 负责配乐创意，DeepSeek Harness 负责 FFmpeg 和技术质检。固定使用 Suno 官方 MCP https://api.suno.com/mcp，经用户授权使用已购 Pro 额度；不假定 agy 支持 OAuth，实测后才启用，必要时经批准委派 Codex 或用户手动导入。官方 REST 不纳入本项目，禁止非官方 API、Cookie 转接及额外付费。Phase 0 只做离线配置与验收，不登录、生成、下载或消耗积分。BGM 必须独立于 H3 原生对白，后期不替换对白。完成 Phase 0 报告后停止。

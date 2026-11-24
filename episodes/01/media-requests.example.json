@@ -1,0 +1,102 @@
+{
+  "episode_id": "EP01",
+  "requests": [
+    {
+      "asset_id": "EP01-S01-KF01",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "kind": "keyframe",
+      "producer": "codex_imagegen",
+      "prompt": "First-person view of a restrained near-future apartment at dawn, a phone screen lighting the foreground without legible text, believable practical lighting, cinematic psychological suspense, original design. No recognizable real person, no branded device, no visible watermark. UI text will be composited in HTML.",
+      "reference_ids": [],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "Readable silhouette and clear focal point",
+        "Consistent with approved location look before final approval"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "EP01-S01-VID01",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "kind": "video",
+      "producer": "metaso_minimax_h3_direct",
+      "prompt": "Use the approved start-frame reference if supported by the verified direct API. Slow natural handheld drift toward the phone, subdued dawn light, stable environment and hand geometry. Preserve composition and wardrobe; no generated readable text. Target duration is provisional and must be adapted to actual provider capabilities.",
+      "reference_ids": [
+        "EP01-S01-KF01"
+      ],
+      "aspect_ratio": "16:9",
+      "duration_seconds": 5,
+      "acceptance": [
+        "Start frame approved before generation",
+        "No abrupt visual continuity changes",
+        "Owner approves cloud budget before invocation",
+        "Metaso endpoint confirmed; reference upload and total cost approved"
+      ],
+      "status": "requested",
+      "paid_approval_required": true,
+      "video_provider": "metaso",
+      "audio_mode": "native_ambience"
+    },
+    {
+      "asset_id": "EP01-S02-KF01",
+      "shot_id": "EP01-S02",
+      "revision": 1,
+      "kind": "keyframe",
+      "producer": "codex_imagegen",
+      "prompt": "Original fictional investigator in a restrained near-future apartment, approved actor reference pending.",
+      "reference_ids": [],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "Approved actor identity"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "EP01-S02-VO01",
+      "shot_id": "EP01-S02",
+      "revision": 1,
+      "kind": "voice_reference",
+      "producer": "omnivoice_local",
+      "prompt": "Original fictional investigator voice, calm and measured.",
+      "reference_ids": [],
+      "aspect_ratio": "16:9",
+      "duration_seconds": 4,
+      "voice_id": "VOICE-004",
+      "dialogue_text": "你确定，这是你的家吗？",
+      "acceptance": [
+        "Clean speech, approved voice identity and rights"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "EP01-S02-VID01",
+      "shot_id": "EP01-S02",
+      "revision": 1,
+      "kind": "video",
+      "producer": "metaso_minimax_h3_direct",
+      "prompt": "Reference Image 1 for the investigator, Audio 1 for voice. The investigator says exactly: “你确定，这是你的家吗？” Natural synchronized mouth movement, restrained expression. Native dialogue audio.",
+      "reference_ids": [
+        "EP01-S02-KF01",
+        "EP01-S02-VO01"
+      ],
+      "audio_reference_ids": [
+        "EP01-S02-VO01"
+      ],
+      "audio_mode": "native_reference_dialogue",
+      "dialogue_text": "你确定，这是你的家吗？",
+      "aspect_ratio": "16:9",
+      "duration_seconds": 6,
+      "acceptance": [
+        "Approved voice and image, native speech, correct transcript, timbre and lip sync review"
+      ],
+      "status": "requested",
+      "paid_approval_required": true,
+      "video_provider": "metaso"
+    }
+  ]
+}

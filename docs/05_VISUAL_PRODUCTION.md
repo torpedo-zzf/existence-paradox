@@ -1,0 +1,11 @@
+# Visual production and routing (v0.3.0)
+agy is sole controller, owns Nano Banana consistency edits, OSS staging, Metaso video and integration. Codex owns narrative direction, ImageGen original actor/location references, keyframes, shot design and visual QC. DeepSeek Harness calls the existing local ComfyUI Qwen-Image-2.1 workflow for auxiliary assets and batch processing; it does not itself generate images. It also owns FFmpeg/ffprobe QC. OmniVoice is local TTS. All capabilities require actual validation. Never assume built-in image tools are headless-capable or free. No automatic paid fallback.
+
+1. agy issues scoped requests; Codex locks a visual bible with CHAR/LOC/PROP/STYLE/VOICE/SHOT IDs and owner-approved reference versions.
+2. ImageGen creates canonical refs; Nano Banana edits angles/expressions/continuity; Qwen produces supporting images from those refs, not new actor identities. One owner and preferred route per asset; compare on a common small benchmark before scale. Local Qwen and OmniVoice run serially initially.
+3. Each handoff supplies asset ID, revision, tool/model, input reference IDs, relative local file, SHA-256, dimensions, prompt, rights, approval, cost/unknown, QC. agy verifies files and hashes; Codex reviews continuity. No secrets or signed URLs in manifests. Candidates stay in assets/inbox; approved local assets are immutable per version.
+4. agy stages only approved references in private OSS and obtains signed HTTPS GET URLs; calls Metaso directly; persists sanitized task receipt; polls existing task and downloads approved media locally. See docs/07 and 11. ComfyUI only for local images.
+5. DeepSeek Harness checks codec, duration, hash, continuity metadata and fallback; Codex reviews actual frames; agy alone approves integration and publishes manifest. No provider calls at gameplay time.
+
+## Voice-first native AV requirement
+Follow docs/12_VOICE_AND_NATIVE_AV.md: OmniVoice approved voice references precede speaking video; agy stages approved images and audio via private OSS and uses direct Metaso native reference-to-video with native audio. Preserve original dialogue audio. DeepSeek Harness checks streams and transcript; Codex reviews timbre, acting and lip sync. No forced post-dub or assumed exact voice reproduction. Runtime NPC TTS remains separate. Real capabilities require approved pilot evidence.

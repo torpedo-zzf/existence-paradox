@@ -1,0 +1,42 @@
+{
+  "episode_id": "ep01-opening",
+  "status": "draft",
+  "cues": [
+    {
+      "cue_id": "BGM-001",
+      "scene_anchor": "wake",
+      "purpose": "identity motif",
+      "prompt": "Original instrumental psychological sci-fi underscore, restrained analog synth and sparse piano, uneasy and intimate, no vocals, no existing melody.",
+      "loop": false,
+      "asset_id": null,
+      "duck_under_dialogue": true
+    },
+    {
+      "cue_id": "BGM-002",
+      "scene_anchor": "inspect",
+      "purpose": "investigation loop",
+      "prompt": "Original instrumental minimal ambient pulse, sparse textures, subdued mystery, no vocals, seamless loop candidate.",
+      "loop": true,
+      "asset_id": null,
+      "duck_under_dialogue": true
+    },
+    {
+      "cue_id": "BGM-003",
+      "scene_anchor": "archive",
+      "purpose": "revelation sting",
+      "prompt": "Original instrumental dissonant synth sting, restrained peak, no vocals, no existing melody.",
+      "loop": false,
+      "asset_id": null,
+      "duck_under_dialogue": true
+    },
+    {
+      "cue_id": "BGM-004",
+      "scene_anchor": "meeting",
+      "purpose": "unresolved tension",
+      "prompt": "Original instrumental sparse piano and low analog textures, unresolved suspense, no vocals, no existing melody.",
+      "loop": false,
+      "asset_id": null,
+      "duck_under_dialogue": true
+    }
+  ]
+}

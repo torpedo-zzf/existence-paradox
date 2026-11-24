@@ -1,0 +1,21 @@
+{
+  "provider": "aliyun_oss",
+  "enabled": false,
+  "allow_upload": false,
+  "private_bucket_required": true,
+  "public_access_allowed": false,
+  "bucket": null,
+  "region": null,
+  "endpoint": null,
+  "custom_domain": null,
+  "prefix": "staging/existence-paradox/",
+  "signed_get_ttl_seconds": 7200,
+  "lifecycle_days": 7,
+  "credentials_location": "local_only",
+  "persist_signed_urls": false,
+  "verified": false,
+  "staged_media_types": [
+    "image",
+    "audio"
+  ]
+}
