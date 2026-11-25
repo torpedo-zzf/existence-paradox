@@ -8,6 +8,8 @@
   },
   "scripts": {
     "verify": "node scripts/validate-init.mjs && node --test tests/*.test.mjs",
+    "test:phase1": "node --test tests/core/*.test.mjs tests/ui/*.test.mjs tests/integration/*.test.mjs",
+    "play": "node scripts/dev-server.mjs",
     "audit:env": "node scripts/audit-env.mjs",
     "agents:smoke": "node scripts/agent-bridge.mjs"
   }

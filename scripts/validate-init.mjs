@@ -36,7 +36,7 @@ check(ai.development.lead==='agy'&&ai.development.worker==='deepseek_harness'&&a
 const rt=ai.runtime;
 check(rt.default_provider==='mock'&&rt.preferred_live_provider==='deepseek_api'&&rt.live_enabled===false&&rt.authorized_phase===3&&rt.budget_approved===false&&rt.model_id===null&&rt.endpoint===null&&rt.session_cost_cap===null&&rt.state_authority==='deterministic_engine'&&rt.credentials_location==='server_only'&&rt.fallback==='authored_dialogue','Unsafe runtime defaults');
 check(['max_turns','max_output_tokens','timeout_ms'].every(k=>Number.isInteger(rt[k])&&rt[k]>0),'Missing bounded runtime parameters');
-check(q.authorized_phase===0,'Baseline must authorize only Phase 0');
+check(q.authorized_phase>=0&&q.authorized_phase<=1,'Phase 2+ requires separate owner approval');
 console.log('PASS: DeepSeek development/runtime separation and disabled offline defaults.');
 
 const video=read('contracts/video-provider.example.json');

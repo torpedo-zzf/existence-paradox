@@ -1,0 +1,456 @@
+{
+  "id": "ep01-slice",
+  "version": 1,
+  "title": "存在悖论 · 第一章：查无此人",
+  "subtitle": "Phase 1 离线可玩垂直切片（占位素材版）",
+  "startScene": "wake",
+  "evidence": [
+    {
+      "id": "death_notice",
+      "label": "公民死亡注销通知",
+      "summary": "市政身份登记系统于三天前 03:17 签发，正式宣告你的公民身份因“死亡”注销。",
+      "source": "市政身份终端推送",
+      "reliability": "verified"
+    },
+    {
+      "id": "smart_lock_log",
+      "label": "门锁生物识别记录",
+      "summary": "公寓玄关门锁显示昨晚 22:18 你的掌纹曾刷卡离开，且今早并无重新进入的记录，与你整晚在屋内的记忆冲突。",
+      "source": "公寓门锁本地日志",
+      "reliability": "contradictory"
+    },
+    {
+      "id": "clinic_receipt",
+      "label": "第七连续性诊所回执",
+      "summary": "一份三天前签署的《身份连续性核验回执》，签字笔迹与你完全一致，备注栏写着“双轨同步已完成，异常体待回收”。",
+      "source": "桌面折叠终端加密缓存",
+      "reliability": "unverified"
+    },
+    {
+      "id": "lin_voice_memo",
+      "label": "林的矛盾证词",
+      "summary": "林坚称十分钟前刚在楼下把备用钥匙交给了“你”，且衣着、表带与语气与你毫无二致。",
+      "source": "本地通话摘要",
+      "reliability": "contradictory"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "wake",
+      "title": "01 · 凌晨的注销通知",
+      "location": "近未来普通公寓 · 卧室",
+      "timecode": "2042-11-25 06:42",
+      "mood": "unease",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】微亮的灰蓝晨光透过百叶窗，床头终端屏幕泛出克制的红光，空气安静得反常。",
+        "palette": "cold-slate"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "旁白",
+          "text": "2042年11月25日，清晨六点四十二分。你在熟悉的公寓醒来，窗外只有薄雾和远处的轻轨低鸣。",
+          "durationMs": 3200
+        },
+        {
+          "id": "b2",
+          "speaker": "市政身份终端",
+          "text": "【系统通告】您的公民身份编号已于 72 小时前完成永久注销。注销原因：自然人已死亡。",
+          "durationMs": 3400
+        },
+        {
+          "id": "b3",
+          "speaker": "旁白",
+          "text": "你的支付权限、门禁同步和医保通道全部显示灰色锁定。客厅方向，玄关门锁的同步指示灯正在缓慢闪烁。",
+          "durationMs": 3400
+        }
+      ],
+      "choices": [
+        {
+          "id": "inspect_notice",
+          "label": "先核查死亡注销通知与屋内终端",
+          "hint": "搜集本地客观记录，优先查清时间线漏洞",
+          "target": "terminal_check",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": ["death_notice"],
+            "trustDelta": 0,
+            "flags": ["inspected_first"]
+          }
+        },
+        {
+          "id": "call_lin_early",
+          "label": "立刻致电最亲近的联系人：林",
+          "hint": "第一时间寻求活人证实，可能提升信任但会错过部分屋内线索",
+          "target": "lin_call",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 1,
+            "flags": ["called_lin_first"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "terminal_check",
+      "title": "02 · 缺失的三天",
+      "location": "公寓客厅 · 书桌与玄关",
+      "timecode": "2042-11-25 06:44",
+      "mood": "investigation",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】客厅书桌上的折叠终端弹出两层日志：左侧是玄关门锁记录，右侧是一份未归档的诊所加密缓存。",
+        "palette": "steel-cyan"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "旁白",
+          "text": "注销回执的签发时间是三天前凌晨三点十七分。可你努力回想，那晚之后到今天清晨之间的记忆，像被整段抽空了一样模糊。",
+          "durationMs": 3600
+        },
+        {
+          "id": "b2",
+          "speaker": "旁白",
+          "text": "桌面终端同时亮起两条本地异常：玄关门锁有一条未上传云端的离线掌纹日志；另有一份带诊所徽标的加密回执尚未自动销毁。",
+          "durationMs": 3600
+        }
+      ],
+      "choices": [
+        {
+          "id": "check_door_lock",
+          "label": "调取玄关门锁的离线生物识别记录",
+          "hint": "核对昨晚是否有人以你的身份出入",
+          "target": "door_anomaly",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": ["smart_lock_log"],
+            "trustDelta": 0,
+            "flags": ["checked_lock"]
+          }
+        },
+        {
+          "id": "open_clinic_cache",
+          "label": "解密桌面终端里的诊所回执缓存",
+          "hint": "追查三天前空白记忆的直接来源",
+          "target": "clinic_clue",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": ["clinic_receipt"],
+            "trustDelta": 0,
+            "flags": ["checked_clinic"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "door_anomaly",
+      "title": "03 · 只有离开，没有归来",
+      "location": "公寓玄关",
+      "timecode": "2042-11-25 06:46",
+      "mood": "investigation",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】特写：玄关门锁屏幕显示“22:18 掌纹匹配 99.8% · 外出”，下一行空白。",
+        "palette": "amber-dusk"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "门锁日志",
+          "text": "2042-11-24 22:18:04 —— 主户主掌纹验证通过（置信度 99.8%），方向：离开室内。",
+          "durationMs": 3200
+        },
+        {
+          "id": "b2",
+          "speaker": "旁白",
+          "text": "在那之后，没有任何开门进入的记录。你此刻正站在反锁的室内，手机忽然震动起来——来电显示：林。",
+          "durationMs": 3400
+        }
+      ],
+      "choices": [
+        {
+          "id": "answer_lin_now",
+          "label": "立刻接听林的电话",
+          "hint": "正面核对昨晚与今早的行踪",
+          "target": "lin_call",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 1,
+            "flags": []
+          }
+        },
+        {
+          "id": "grab_clinic_first",
+          "label": "先导出书桌上的诊所缓存，再回拨林",
+          "hint": "多拿到一份关键线索，但延迟接听会让林起疑",
+          "target": "clinic_clue",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": ["clinic_receipt"],
+            "trustDelta": -1,
+            "flags": ["delayed_call"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "clinic_clue",
+      "title": "04 · 第七连续性诊所",
+      "location": "公寓书桌",
+      "timecode": "2042-11-25 06:47",
+      "mood": "revelation",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】加密文档在暗色屏幕上展开，底部的电子签名与你的笔迹分毫不差。",
+        "palette": "deep-indigo"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "加密回执",
+          "text": "机构：第七连续性诊所。项目：个体身份连续性核验。状态：双轨同步已完成，异常体待回收。",
+          "durationMs": 3500
+        },
+        {
+          "id": "b2",
+          "speaker": "旁白",
+          "text": "签字日期正是身份被注销的那一天。你刚把这份回执存入本地，林的语音通话请求再次切入屏幕。",
+          "durationMs": 3200
+        }
+      ],
+      "choices": [
+        {
+          "id": "answer_lin_with_clue",
+          "label": "接通林的通话",
+          "hint": "带着诊所线索试探林的真实立场",
+          "target": "lin_call",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 0,
+            "flags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "lin_call",
+      "title": "05 · 电话里的另一个你",
+      "location": "公寓客厅 · 语音通话",
+      "timecode": "2042-11-25 06:49",
+      "mood": "revelation",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】声波在屏幕上轻微颤动。窗玻璃倒映着你的剪影，而听筒里传来熟悉却令人背脊发凉的回答。",
+        "palette": "crimson-slate"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "林",
+          "text": "“喂？你怎么又换了备用线路打过来？十分钟前你不是刚在楼下拿走备用钥匙吗？”",
+          "durationMs": 3400
+        },
+        {
+          "id": "b2",
+          "speaker": "旁白",
+          "text": "林的声音里没有恶意，只有真实的困惑。短暂的静电间隙里，你听见林身旁似乎还有路过的早班车声。",
+          "durationMs": 3200
+        },
+        {
+          "id": "b3",
+          "speaker": "林",
+          "text": "“你刚才说系统出了故障，让我千万别把你今天回公寓的事告诉调查员……等等，你现在到底在哪？”",
+          "durationMs": 3600
+        }
+      ],
+      "choices": [
+        {
+          "id": "press_clinic_name",
+          "label": "直接追问“第七连续性诊所”和三天前的同步记录",
+          "hint": "需要已获取【第七连续性诊所回执】",
+          "target": "crossroads",
+          "requiresEvidence": ["clinic_receipt"],
+          "effects": {
+            "evidence": ["lin_voice_memo"],
+            "trustDelta": 2,
+            "flags": ["lin_shaken"]
+          }
+        },
+        {
+          "id": "verify_duplicate_details",
+          "label": "稳住语气，向林核对十分钟前“那个人”的衣着与细节",
+          "hint": "保持合作，获取林的目击证词",
+          "target": "crossroads",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": ["lin_voice_memo"],
+            "trustDelta": 1,
+            "flags": ["lin_cooperative"]
+          }
+        },
+        {
+          "id": "cut_off_lin",
+          "label": "怀疑林在掩护冒名者，立刻挂断并封锁通话",
+          "hint": "切断外部联络，强制转为独自取证路线",
+          "target": "crossroads",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": ["death_notice"],
+            "trustDelta": -2,
+            "flags": ["lin_alienated"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "crossroads",
+      "title": "06 · 电梯抵达的提示音",
+      "location": "公寓门厅",
+      "timecode": "2042-11-25 06:53",
+      "mood": "unease",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】门外走廊感应灯亮起。终端屏幕一侧是本地离线封装进度条，另一侧是林发来的街角坐标。",
+        "palette": "cold-slate"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "旁白",
+          "text": "走廊尽头传来电梯抵达本层的轻响。脚步声不疾不徐，正朝你的门牌号走来。",
+          "durationMs": 3200
+        },
+        {
+          "id": "b2",
+          "speaker": "旁白",
+          "text": "如果你留在屋内完成离线证据封存，可能会正面撞上拿着备用钥匙回来的人；如果立刻从消防通道撤离去见林，你必须相信林没有出卖你。",
+          "durationMs": 3800
+        }
+      ],
+      "choices": [
+        {
+          "id": "seal_evidence_here",
+          "label": "留守完成离线证据封存，记录门外的一切",
+          "hint": "需要已获取【公民死亡注销通知】",
+          "target": "ending_archive",
+          "requiresEvidence": ["death_notice"],
+          "effects": {
+            "evidence": [],
+            "trustDelta": 0,
+            "flags": ["chose_archive"]
+          }
+        },
+        {
+          "id": "meet_lin_outside",
+          "label": "从消防通道撤离，赴林的街角之约",
+          "hint": "需要与林的信任度达到 +1 以上",
+          "target": "ending_meeting",
+          "requiresEvidence": [],
+          "requiresMinTrust": 1,
+          "effects": {
+            "evidence": [],
+            "trustDelta": 1,
+            "flags": ["chose_meeting"]
+          }
+        },
+        {
+          "id": "vanish_with_records",
+          "label": "不信任任何人，拔掉离线存储卡独自隐匿",
+          "hint": "无需额外条件，走保守封存结局",
+          "target": "ending_archive",
+          "requiresEvidence": [],
+          "effects": {
+            "evidence": [],
+            "trustDelta": -1,
+            "flags": ["chose_solo"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ending_archive",
+      "title": "结局 A · 静默封存",
+      "location": "公寓门厅 · 离线存储完成",
+      "timecode": "2042-11-25 06:55",
+      "mood": "aftermath",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】离线加密卡弹出红灯转绿；同一瞬间，门锁响起掌纹验证通过的提示音，门把手缓缓下压。",
+        "palette": "deep-indigo"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "旁白",
+          "text": "进度条跳到 100%。你拔下加密存储卡的瞬间，桌面终端弹出一行无发件人警告：“请勿再次查询已注销身份。”",
+          "durationMs": 3600
+        },
+        {
+          "id": "b2",
+          "speaker": "门锁提示音",
+          "text": "“验证通过。欢迎回家。” —— 门把手在清晨的寂静里缓缓下压，门外站着一个拥有你全部合法身份的人。",
+          "durationMs": 3800
+        }
+      ],
+      "ending": {
+        "id": "silent_archive",
+        "title": "结局 A：静默封存",
+        "summary": "你保住了第一手客观记录，但也把正面对峙推到了门前。真正的身份归属之争才刚刚开始。"
+      },
+      "choices": []
+    },
+    {
+      "id": "ending_meeting",
+      "title": "结局 B · 街角双影",
+      "location": "公寓外街角 · 晨雾",
+      "timecode": "2042-11-25 06:56",
+      "mood": "aftermath",
+      "media": {
+        "type": "placeholder",
+        "src": null,
+        "poster": null,
+        "caption": "【占位画面】晨雾中的街角，林脸色苍白地攥着备用钥匙，目光越过你的肩膀望向马路对面的红绿灯。",
+        "palette": "amber-dusk"
+      },
+      "beats": [
+        {
+          "id": "b1",
+          "speaker": "旁白",
+          "text": "你沿着消防楼梯冲进湿冷的晨雾。林站在街角便利店檐下，看见你的一刻呼吸明显停了一拍。",
+          "durationMs": 3400
+        },
+        {
+          "id": "b2",
+          "speaker": "林",
+          "text": "“别回头……千万别惊动他。你现在正站在马路对面的红绿灯下，拿着那把备用钥匙，看着我们。”",
+          "durationMs": 3800
+        }
+      ],
+      "ending": {
+        "id": "street_witness",
+        "title": "结局 B：街角双影",
+        "summary": "你赢得了林的信任并获得了活人目击，却在晨雾里第一次与“另一个自己”隔街相望。谁才是被复制的那一个？"
+      },
+      "choices": []
+    }
+  ]
+}

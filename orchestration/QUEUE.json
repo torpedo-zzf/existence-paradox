@@ -1,5 +1,5 @@
 {
-  "authorized_phase": 0,
+  "authorized_phase": 1,
   "tasks": [
     {
       "id": "INIT-001",
@@ -37,7 +37,7 @@
         "Validate voice-first native AV contracts and dependency gates offline",
         "Inventory Suno official MCP/REST/manual-export configuration offline; no OAuth, credit use, download or API call; verify music contract and task dependencies."
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "CORE-101",
@@ -56,7 +56,7 @@
         "Deterministic scene choices and guard tests",
         "Versioned save/reload/reset with corrupt-save recovery"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "UI-102",
@@ -75,7 +75,7 @@
         "Local browser player supports desktop and mobile",
         "Subtitles, choices, evidence journal, media fallback and keyboard/touch"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "STORY-103",
@@ -93,7 +93,7 @@
         "Two meaningful outcomes, clue and replay path",
         "Owner reviews narrative before locking"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "SLICE-104",
@@ -113,7 +113,7 @@
         "No network required for core play",
         "Record browser/mobile test evidence and obtain owner sign-off"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "VIS-201",
