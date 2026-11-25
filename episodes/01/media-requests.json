@@ -4,14 +4,14 @@
     {
       "asset_id": "CHAR-001",
       "shot_id": "EP01-S01",
-      "revision": 1,
+      "revision": 2,
       "kind": "character_reference",
       "producer": "codex_imagegen",
-      "prompt": "Original semi-defined adult POV wardrobe reference for a restrained 2042 thriller. Natural relaxed hands, short nails, washed charcoal cuffs and a narrow slate woven watchband on the left wrist. Crop from shoulders to lap with both hands resting naturally in view, against a plain cool gray surface in soft window light. Exclude faces, logos, writing and watermarks.",
+      "prompt": "Original semi-defined East Asian adult POV wardrobe reference for a restrained 2042 Chinese urban thriller. Natural East Asian skin tone, relaxed hands, short clean nails, washed charcoal cuffs and a narrow slate woven watchband on the left wrist. Crop from shoulders to lap with both hands resting naturally in view, against a plain cool gray surface in soft window light. Exclude faces, logos, writing and watermarks.",
       "reference_ids": [],
       "aspect_ratio": "4:3",
       "acceptance": [
-        "Hand anatomy, cuff and left wristband are easy to verify",
+        "East Asian hand skin tone, anatomy, cuff and left wristband are easy to verify",
         "Facial identity remains unspecified"
       ],
       "status": "requested",
@@ -20,14 +20,14 @@
     {
       "asset_id": "CHAR-002",
       "shot_id": "EP01-S05",
-      "revision": 1,
+      "revision": 2,
       "kind": "character_reference",
       "producer": "codex_imagegen",
-      "prompt": "Single caller-side medium close-up of an original fictional adult just before asking a familiar caller a question. Dark side-parted hair tucked behind one ear, charcoal raincoat over a muted olive knit, quiet alert expression. Sees the listener just off lens. Three-quarter angle with eyes and mouth clearly visible, no handset across the face. Soft gray dawn from one side and anonymous out-of-focus background. No likeness of a real person, identifiable location, brand, text or overlay.",
+      "prompt": "Realistic cinematic medium close-up of Lin, an original fictional East Asian young woman in her late 20s in a restrained 2042 Chinese near-future thriller. Natural East Asian facial features, understated no-makeup realism, dark straight side-parted hair tucked behind one ear, charcoal raincoat over a muted olive knit, quiet alert expression with mild confusion. Looking slightly off-lens toward the viewer, three-quarter angle with eyes and mouth clearly visible, no handset across the face. Soft gray dawn window light from one side, anonymous out-of-focus urban interior background. Natural 35mm film grain feel, no celebrity likeness, no Western facial features, no brands, text or overlay.",
       "reference_ids": [],
       "aspect_ratio": "16:9",
       "acceptance": [
-        "One original face and readable mouth in a single frame suitable as a speaking reference",
+        "Original realistic East Asian young woman with readable mouth suitable as a speaking reference",
         "Hair part, face shape and clothing approved for reuse"
       ],
       "status": "requested",
@@ -36,16 +36,16 @@
     {
       "asset_id": "CHAR-003",
       "shot_id": "EP01-S08",
-      "revision": 1,
+      "revision": 2,
       "kind": "character_reference",
       "producer": "codex_imagegen",
-      "prompt": "Create an anonymous adult rear three-quarter silhouette that echoes the shoulder width, charcoal cuff and left-wrist slate band implied by CHAR-001. Natural stance, arms at rest, soft gray diffuse backlight, quiet everyday clothing. Keep the face concealed and the hands empty. No branding, words or dramatic rim lighting.",
+      "prompt": "Anonymous East Asian adult rear three-quarter silhouette matching the build, dark hair nape, washed charcoal long-sleeve cuffs (not rolled up) and left-wrist narrow slate woven band implied by CHAR-001. Natural stance, arms at rest, soft gray diffuse dawn backlight, quiet everyday Chinese urban clothing. Keep the face completely concealed and the hands empty. No branding, words or dramatic rim lighting.",
       "reference_ids": [
         "CHAR-001"
       ],
       "aspect_ratio": "4:3",
       "acceptance": [
-        "Clothing and wrist anchors match CHAR-001",
+        "East Asian build, unrolled charcoal cuff and wrist anchor match CHAR-001",
         "No readable face or new identity clue"
       ],
       "status": "requested",
@@ -70,16 +70,16 @@
     {
       "asset_id": "LOC-002",
       "shot_id": "EP01-S02",
-      "revision": 1,
+      "revision": 2,
       "kind": "environment",
       "producer": "codex_imagegen",
-      "prompt": "Eye-level view of the living room and desk in the same lived-in 2042 apartment. Reuse the muted oak and cool window light from LOC-001. Oak-veneer desk under a side window, compact fold-out terminal with a clean blank display on a felt mat, unmarked ceramic mug behind it and entry passage to camera right. Show the hinge and room geometry. No people, brands or baked interface.",
+      "prompt": "Medium eye-level shot of the living room desk in the same ordinary 2042 Chinese apartment from LOC-001, framed much closer to the desk than a wide establishing shot. In the foreground-midground, an oak-veneer desk sits beneath a side window with cool gray dawn light; clearly visible on a dark felt desk mat is an unbranded compact fold-out terminal with a distinct center hinge and completely blank matte screen, plus an unmarked ceramic mug behind it. On camera right, a clearly legible open doorway passage leads toward the apartment entryway. No people, brands, text or baked interface.",
       "reference_ids": [
         "LOC-001"
       ],
       "aspect_ratio": "16:9",
       "acceptance": [
-        "Desk hinge, felt mat, mug and right-hand passage provide stable anchors",
+        "Desk hinge, felt mat, mug and right-hand entryway passage are all clearly readable in frame",
         "Fold-out display is distinct from the bedside handset"
       ],
       "status": "requested",
@@ -238,16 +238,16 @@
     {
       "asset_id": "EP01-S05-VID01",
       "shot_id": "EP01-S05",
-      "revision": 1,
+      "revision": 2,
       "kind": "video",
       "producer": "metaso_minimax_h3_direct",
-      "prompt": "768P pilot. Picture 1 (CHAR-002) anchors the caller's face, wardrobe and framing. Audio 1 (VOICE-001) is the voice reference for the sole speaker. One static ten-second medium close-up at the caller end of a voice call. Let a quiet breath lead into the two questions, with genuine confusion surfacing in the second. The caller says exactly <d>[Chinese] “喂？你怎么又换了备用线路打过来？十分钟前你不是刚在楼下拿走备用钥匙吗？”</d> Hold the expression after the final word. Keep the mouth visible and naturally synchronized with native dialogue. In the background, let one distant vehicle pass quietly. No music, additional voices, labels or captions.",
+      "prompt": "768P pilot. Picture 1 (CHAR-002) is the sole on-screen East Asian young woman. Audio 1 (VOICE-001) is the single locked voice timbre for the entire clip. Static 8-second medium close-up. The woman speaks continuously in one consistent voice matching Audio 1 from start to finish, with mild genuine confusion: <d>[Chinese] 喂？你怎么又换了备用线路打过来？十分钟前你不是刚在楼下拿走备用钥匙吗？</d> Strictly one speaker and one consistent timbre throughout; no voice switch, no second speaker, no off-screen reply, no music. Hold a quiet confused expression for 1 second after finishing. Natural lip sync and subtle dawn room ambience.",
       "reference_ids": [
         "CHAR-002",
         "VOICE-001"
       ],
       "aspect_ratio": "16:9",
-      "duration_seconds": 10,
+      "duration_seconds": 8,
       "video_provider": "metaso",
       "audio_mode": "native_reference_dialogue",
       "audio_reference_ids": [
@@ -255,8 +255,8 @@
       ],
       "dialogue_text": "“喂？你怎么又换了备用线路打过来？十分钟前你不是刚在楼下拿走备用钥匙吗？”",
       "acceptance": [
-        "Owner approves the 768P job, image and audio staging, budget and attempts before submission",
-        "Native dialogue matches the exact authored line with the correct speaker, reference timbre and natural lip sync"
+        "Owner approves the 768P 8s r2 job, budget and 1-attempt cap before submission",
+        "Single consistent voice timbre matching VOICE-001 throughout, exact Chinese line, natural lip sync, East Asian CHAR-002 identity"
       ],
       "status": "requested",
       "paid_approval_required": true

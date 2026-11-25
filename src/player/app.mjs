@@ -55,6 +55,17 @@ async function boot() {
       ? `<div class="banner" role="status"><span>${escapeHtml(vm.banner)}</span><button type="button" class="btn-ghost" data-action="dismiss-banner">关闭</button></div>`
       : '';
 
+    const callHudHtml =
+      vm.scene.media.overlay === 'video_call'
+        ? `<div class="call-hud" aria-label="加密视频通话界面">
+             <div class="call-hud-top">
+               <span class="call-rec"><i class="rec-dot"></i> 加密视频线路 · 林</span>
+               <span class="call-meta mono">E2EE · 00:08 · 信号稳定</span>
+             </div>
+             <div class="call-corners" aria-hidden="true"></div>
+           </div>`
+        : '';
+
     const mediaStageHtml = vm.mediaFallbackActive
       ? `<div class="stage-placeholder palette-${escapeHtml(vm.scene.media.palette || 'cold-slate')}">
            <div class="stage-grid"></div>
@@ -63,11 +74,11 @@ async function boot() {
              <span class="chip mono">${escapeHtml(vm.scene.timecode)}</span>
            </div>
            <div class="stage-caption">${escapeHtml(vm.scene.media.caption)}</div>
-           <div class="stage-badge">OFFLINE PLACEHOLDER · PHASE 1</div>
+           <div class="stage-badge">OFFLINE PLACEHOLDER · FALLBACK</div>
          </div>`
       : vm.scene.media.type === 'video'
-        ? `<video class="stage-video" src="${escapeHtml(vm.scene.media.src)}" playsinline controls ${vm.muted ? 'muted' : ''}></video>`
-        : `<img class="stage-still" src="${escapeHtml(vm.scene.media.src)}" alt="${escapeHtml(vm.scene.media.caption)}" />`;
+        ? `<video class="stage-video" src="${escapeHtml(vm.scene.media.src)}" ${vm.scene.media.poster ? `poster="${escapeHtml(vm.scene.media.poster)}"` : ''} autoplay playsinline controls ${vm.muted ? 'muted' : ''}></video>${callHudHtml}`
+        : `<img class="stage-still" src="${escapeHtml(vm.scene.media.src)}" alt="${escapeHtml(vm.scene.media.caption)}" />${callHudHtml}`;
 
     const subtitleHtml = vm.subtitlesEnabled
       ? `<div class="subtitle-box" aria-live="polite">

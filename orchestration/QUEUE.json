@@ -148,7 +148,7 @@
         "Produce approved actor references, locations, storyboard and keyframes; include actual files, hashes, source and continuity review",
         "If Codex image tool unavailable, report blocked; owner may manually supply ChatGPT ImageGen files with provenance; no paid alternative automatically"
       ],
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "IMG-205",
@@ -164,7 +164,7 @@
       "acceptance": [
         "Prove Nano Banana edit with canonical references, real artifact and owner-approved usage; no silent fallback"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "IMG-206",
@@ -180,7 +180,7 @@
       "acceptance": [
         "Verify local Qwen-Image-2.1 ComfyUI workflow; produce approved auxiliary asset and hash; no H3 calls"
       ],
-      "status": "pending"
+      "status": "blocked"
     },
     {
       "id": "VOICE-208",
@@ -200,7 +200,7 @@
         "WAV/MP3 speech references 2–15s each, max 3 clips and 15s total per request; verify actual Metaso limits; no paid calls",
         "No final speaking video before approved voice assets"
       ],
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "OSS-207",
@@ -221,7 +221,7 @@
         "Verify private scoped staging, signed HTTPS GET, deduplication, expiry and cleanup; signed URLs must not persist; real Metaso acceptance checked in VID-203",
         "Stage approved audio as well as images, verify MIME, signed GET and retention; no audio upload before rights approval"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "VID-203",
@@ -241,7 +241,7 @@
         "Persist intent and task ID; reconcile ambiguous submissions; bounded polling and verified local download; never log signed URLs or tokens",
         "Speaking pilot uses reference_image + reference_audio, native audio enabled; confirm Metaso schema; no first/last frame mixing or post-dub fallback; require VOICE-208 and validated audio access"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "QC-204",
@@ -260,7 +260,7 @@
         "Report reproducible results; Codex and agy review visual continuity separately",
         "Check native audio stream, transcript, duration and continuity; Codex and owner review lip sync, timbre and speaker consistency; reject failed shots; preserve native speech"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "BGM-209",
@@ -320,7 +320,7 @@
         "Record rights, provenance and actual costs; prove local playback and no media generation at runtime",
         "Integrate approved deterministic BGM cue sheet, local music, dialogue ducking and desktop/mobile audio lifecycle; release requires BGM gate or explicit owner waiver."
       ],
-      "status": "pending"
+      "status": "review"
     },
     {
       "id": "AI-301",

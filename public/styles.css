@@ -143,6 +143,51 @@ html, body {
   object-fit: cover;
 }
 
+.call-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  padding: 14px 16px;
+  background: radial-gradient(circle at center, transparent 58%, rgba(5, 8, 14, 0.45) 100%);
+}
+
+.call-hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.call-rec, .call-meta {
+  background: rgba(7, 11, 18, 0.74);
+  border: 1px solid rgba(115, 210, 222, 0.35);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.76rem;
+  color: #e8eef7;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rec-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e05252;
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(224, 82, 82, 0.85);
+}
+
+.call-corners {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(115, 210, 222, 0.22);
+  border-radius: 8px;
+}
+
 .subtitle-box {
   position: relative;
   z-index: 2;

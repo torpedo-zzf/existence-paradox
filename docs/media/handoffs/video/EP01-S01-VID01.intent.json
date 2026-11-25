@@ -1,0 +1,14 @@
+{
+  "asset_id": "EP01-S01-VID01",
+  "model": "MiniMax-H3",
+  "resolution": "768P",
+  "duration": 5,
+  "ratio": "16:9",
+  "content_roles": [
+    "text",
+    "first_frame"
+  ],
+  "submitted_at": "2026-11-25T07:09:37.153Z",
+  "status": "submitted",
+  "task_id": "2125487067225706496"
+}

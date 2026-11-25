@@ -1,0 +1,43 @@
+{
+  "task_id": "IMG-205",
+  "base_commit": "9a41be3",
+  "status": "review",
+  "agent": "agy",
+  "producer": "agy_nano_banana",
+  "outputs": [
+    {
+      "asset_id": "EP01-S01-KF01",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "input_reference_ids": [
+        "LOC-001",
+        "CHAR-001"
+      ],
+      "path": "assets/inbox/nano-banana/EP01-S01-KF01-r1.png",
+      "sha256": "df85b829777360e3efda45dbc07c24f839ce6f4eef5dd7632c790cb9c0adcfa2",
+      "dimensions": {
+        "width": 1376,
+        "height": 768
+      },
+      "cost_cny": "unknown_included_in_agy",
+      "approval": "pending_owner_review"
+    },
+    {
+      "asset_id": "EP01-S05-KF01",
+      "shot_id": "EP01-S05",
+      "revision": 1,
+      "input_reference_ids": [
+        "CHAR-002-r2",
+        "LOC-004-r1"
+      ],
+      "path": "assets/inbox/nano-banana/EP01-S05-KF01-r1.png",
+      "sha256": "0f37adb9305318834a715c4f42592b9fdd5837bca316f902edb96a2ad397fdfa",
+      "dimensions": {
+        "width": 1376,
+        "height": 768
+      },
+      "cost_cny": "unknown_included_in_agy",
+      "approval": "pending_owner_review"
+    }
+  ]
+}

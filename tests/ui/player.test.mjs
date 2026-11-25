@@ -16,7 +16,7 @@ test('UI-102: subtitles, beat progression, replay, and keyboard shortcuts work',
   assert.equal(vm.scene.id, 'wake');
   assert.equal(vm.beatIndex, 0);
   assert.equal(vm.subtitlesEnabled, true);
-  assert.equal(vm.mediaFallbackActive, true);
+  assert.equal(vm.mediaFallbackActive, false);
 
   // Toggle subtitles with C
   ctrl.handleKey('c');

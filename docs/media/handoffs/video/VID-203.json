@@ -1,0 +1,226 @@
+{
+  "task_id": "VID-203",
+  "status": "review",
+  "provider": "metaso",
+  "model": "MiniMax-H3",
+  "transport": "direct_http",
+  "comfyui_used": false,
+  "deliverables": [
+    {
+      "asset_id": "EP01-S01-VID01",
+      "task_id": "2125487067225706496",
+      "resolution": "768P",
+      "duration": 5,
+      "usage": {
+        "total_seconds": 5,
+        "input_seconds": 0,
+        "output_seconds": 5,
+        "input_image_count": 1
+      },
+      "output_path": "assets/generated/video/EP01-S01-VID01-768p.mp4",
+      "size_bytes": 3867157,
+      "sha256": "b50d937150150dc47eb5b5b1dac706b79ec7c84243e6a0869906190c360ef836",
+      "ffprobe": {
+        "ok": true,
+        "data": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1344,
+              "height": 768
+            },
+            {
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2
+            }
+          ],
+          "format": {
+            "duration": "5.175000",
+            "size": "3867157"
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "EP01-S05-VID01",
+      "task_id": "2125487072596647936",
+      "resolution": "768P",
+      "duration": 10,
+      "usage": {
+        "total_seconds": 10,
+        "input_seconds": 0,
+        "output_seconds": 10,
+        "input_image_count": 1,
+        "input_audio_seconds": 7
+      },
+      "output_path": "assets/generated/video/EP01-S05-VID01-768p.mp4",
+      "size_bytes": 4787158,
+      "sha256": "7a7cc9883c0a432f0e758a979202d8749e64755a5ec8805083e3786c2550776d",
+      "owner_review": {
+        "status": "rejected",
+        "reason": "Single speaker switched between two distinct voice timbres within the 10s clip"
+      },
+      "ffprobe": {
+        "ok": true,
+        "data": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1344,
+              "height": 768
+            },
+            {
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2
+            }
+          ],
+          "format": {
+            "duration": "10.125000",
+            "size": "4787158"
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "EP01-S05-VID01",
+      "revision": 2,
+      "task_id": "2125491542345961472",
+      "resolution": "768P",
+      "duration": 8,
+      "usage": {
+        "total_seconds": 8,
+        "input_seconds": 0,
+        "output_seconds": 8,
+        "input_image_count": 1,
+        "input_audio_seconds": 7
+      },
+      "output_path": "assets/generated/video/EP01-S05-VID01-r2-768p.mp4",
+      "size_bytes": 2603232,
+      "sha256": "3dab2afe7febeed3282157d791d6322f2f7ff6af189d6730a9b5c59b85f8cc5e",
+      "ffprobe": {
+        "ok": true,
+        "data": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1344,
+              "height": 768
+            },
+            {
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2603232"
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "EP01-S05-VID01",
+      "revision": 3,
+      "voice_reference": "VOICE-001-master-r2.wav",
+      "image_reference": "CHAR-002-r2.png",
+      "task_id": "2125498300617252864",
+      "resolution": "768P",
+      "duration": 8,
+      "usage": {
+        "total_seconds": 8,
+        "input_seconds": 0,
+        "output_seconds": 8,
+        "input_image_count": 1,
+        "input_audio_seconds": 9
+      },
+      "output_path": "assets/generated/video/EP01-S05-VID01-r3-768p.mp4",
+      "size_bytes": 2506399,
+      "sha256": "dc2eb3f238f4890bbbea8bc72b5d98f1070d24c9a3e1a5a886aef3b4b780c281",
+      "ffprobe": {
+        "ok": true,
+        "data": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1344,
+              "height": 768
+            },
+            {
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2506399"
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "EP01-S05-VID01",
+      "revision": 4,
+      "direction": "option_b_video_call_pov",
+      "voice_reference": "VOICE-001-master-r2.wav",
+      "image_reference": "EP01-S05-KF01-r1.png",
+      "task_id": "2125500237281681408",
+      "resolution": "768P",
+      "duration": 8,
+      "usage": {
+        "total_seconds": 8,
+        "input_seconds": 0,
+        "output_seconds": 8,
+        "input_image_count": 1,
+        "input_audio_seconds": 9
+      },
+      "output_path": "assets/generated/video/EP01-S05-VID01-r4-768p.mp4",
+      "size_bytes": 5311611,
+      "sha256": "606c326173a4118d767f2f9a3208e7def62042f48338ba65ff19e3be7f0e72eb",
+      "ffprobe": {
+        "ok": true,
+        "data": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1344,
+              "height": 768
+            },
+            {
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "5311611"
+          }
+        }
+      }
+    }
+  ]
+}

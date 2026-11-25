@@ -1,0 +1,49 @@
+{
+  "task_id": "OSS-207",
+  "status": "review",
+  "provider": "aliyun_oss",
+  "sdk": "oss2",
+  "private_bucket": true,
+  "signed_urls_persisted": false,
+  "staged_assets": [
+    {
+      "asset_id": "EP01-S01-KF01",
+      "local_path": "assets/inbox/nano-banana/EP01-S01-KF01-r1.png",
+      "ok": true,
+      "object_key": "staging/existence-paradox/df85b829777360e3efda45dbc07c24f839ce6f4eef5dd7632c790cb9c0adcfa2.png",
+      "sha256": "df85b829777360e3efda45dbc07c24f839ce6f4eef5dd7632c790cb9c0adcfa2",
+      "size_bytes": 1432360,
+      "mime_type": "image/png",
+      "deduplicated": false,
+      "ttl_seconds": 7200,
+      "reachability_http_status": 206,
+      "reachability_content_type": "image/png"
+    },
+    {
+      "asset_id": "CHAR-002",
+      "local_path": "assets/inbox/CHAR-002/CHAR-002-r1.png",
+      "ok": true,
+      "object_key": "staging/existence-paradox/b1e305e349189ab5b481798b9ca0e6566ca8c4d25454f2f782dee9d89ac01ab3.png",
+      "sha256": "b1e305e349189ab5b481798b9ca0e6566ca8c4d25454f2f782dee9d89ac01ab3",
+      "size_bytes": 1863830,
+      "mime_type": "image/png",
+      "deduplicated": false,
+      "ttl_seconds": 7200,
+      "reachability_http_status": 206,
+      "reachability_content_type": "image/png"
+    },
+    {
+      "asset_id": "VOICE-001",
+      "local_path": "assets/inbox/voice/VOICE-001.wav",
+      "ok": true,
+      "object_key": "staging/existence-paradox/ca41052992a68f5206e2d8d07b77a7f85912ef1240ea01837778b5ecec5aee54.wav",
+      "sha256": "ca41052992a68f5206e2d8d07b77a7f85912ef1240ea01837778b5ecec5aee54",
+      "size_bytes": 328364,
+      "mime_type": "audio/x-wav",
+      "deduplicated": false,
+      "ttl_seconds": 7200,
+      "reachability_http_status": 206,
+      "reachability_content_type": "audio/x-wav"
+    }
+  ]
+}

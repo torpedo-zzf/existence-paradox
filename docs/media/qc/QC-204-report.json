@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "task_id": "QC-204",
+  "phase": 2,
+  "generated_by": "scripts/media-qc/run-qc.mjs",
+  "tool": {
+    "name": "media-qc",
+    "version": "1.0.0",
+    "network_access": false,
+    "paid_calls": false,
+    "local_only": true
+  },
+  "environment": {
+    "node": "v24.15.0",
+    "ffprobe": "9.0.2",
+    "ffmpeg": "9.0.2"
+  },
+  "spec_source": "builtin:pilot-768p",
+  "reproduction": "node scripts/media-qc/run-qc.mjs --report docs/media/qc/QC-204-report.json",
+  "scope": {
+    "automated_checks": [
+      "local file exists and is a regular file",
+      "SHA-256 checksum when expectedSha256 is provided",
+      "video stream: h264, exact width/height, duration > 0",
+      "native audio stream: aac, sample rate, channels when requireAudio is true",
+      "volume: mean_volume/max_volume, no clipping above 0 dB"
+    ],
+    "review_boundaries": [
+      "Technical container, stream and volume QC only.",
+      "Visual continuity, lip sync, timbre, speaker consistency and transcript accuracy require separate Codex/owner review.",
+      "No network, provider or paid calls were made."
+    ]
+  },
+  "verification_commands": [
+    "ffprobe -v error -protocol_whitelist file -print_format json -show_streams -show_format <asset>",
+    "ffmpeg -hide_banner -nostdin -nostats -protocol_whitelist file -i <asset> -map 0:a:0 -vn -af volumedetect -f null -"
+  ],
+  "summary": {
+    "ok": true,
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  },
+  "results": [
+    {
+      "id": "EP01-S01-VID01",
+      "path": "assets/generated/video/EP01-S01-VID01-768p.mp4",
+      "ok": true,
+      "size_bytes": 3867157,
+      "checks": {
+        "file": {
+          "ok": true,
+          "path": "assets/generated/video/EP01-S01-VID01-768p.mp4",
+          "size_bytes": 3867157,
+          "is_file": true
+        },
+        "sha256": {
+          "ok": true,
+          "expected": "b50d937150150dc47eb5b5b1dac706b79ec7c84243e6a0869906190c360ef836",
+          "actual": "b50d937150150dc47eb5b5b1dac706b79ec7c84243e6a0869906190c360ef836",
+          "match": true
+        },
+        "video_stream": {
+          "ok": true,
+          "present": true,
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "duration_seconds": 5.175,
+          "stream_duration_seconds": 5.166667,
+          "format_duration_seconds": 5.175,
+          "avg_frame_rate": "24/1"
+        },
+        "audio_stream": {
+          "ok": true,
+          "required": true,
+          "present": true,
+          "native": true,
+          "audio_role": "ambient_native",
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "duration_seconds": 5.175
+        },
+        "volume": {
+          "ok": true,
+          "required": true,
+          "mean_volume_db": -41,
+          "max_volume_db": -25.2,
+          "clipping_threshold_db": 0,
+          "clipping": false
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "EP01-S05-VID01-r4",
+      "path": "assets/generated/video/EP01-S05-VID01-r4-768p.mp4",
+      "ok": true,
+      "size_bytes": 5311611,
+      "checks": {
+        "file": {
+          "ok": true,
+          "path": "assets/generated/video/EP01-S05-VID01-r4-768p.mp4",
+          "size_bytes": 5311611,
+          "is_file": true
+        },
+        "sha256": {
+          "ok": true,
+          "expected": "606c326173a4118d767f2f9a3208e7def62042f48338ba65ff19e3be7f0e72eb",
+          "actual": "606c326173a4118d767f2f9a3208e7def62042f48338ba65ff19e3be7f0e72eb",
+          "match": true
+        },
+        "video_stream": {
+          "ok": true,
+          "present": true,
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "duration_seconds": 8,
+          "stream_duration_seconds": 8,
+          "format_duration_seconds": 8,
+          "avg_frame_rate": "24/1"
+        },
+        "audio_stream": {
+          "ok": true,
+          "required": true,
+          "present": true,
+          "native": true,
+          "audio_role": "native_dialogue",
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "duration_seconds": 8
+        },
+        "volume": {
+          "ok": true,
+          "required": true,
+          "mean_volume_db": -17.7,
+          "max_volume_db": -3.7,
+          "clipping_threshold_db": 0,
+          "clipping": false
+        }
+      },
+      "errors": []
+    }
+  ]
+}

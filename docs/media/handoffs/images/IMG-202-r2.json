@@ -1,0 +1,145 @@
+{
+  "task_id": "IMG-202-r2",
+  "base_commit": "9a41be339dc5b2798073897fb5c10bf2461cbd5b",
+  "branch": "phase2/img-202-r2",
+  "status": "review",
+  "request_file": "episodes/01/media-requests.json",
+  "changed_files": [
+    "assets/inbox/CHAR-001/CHAR-001-r2.png",
+    "assets/inbox/CHAR-002/CHAR-002-r2.png",
+    "assets/inbox/CHAR-003/CHAR-003-r2.png",
+    "assets/inbox/LOC-002/LOC-002-r2.png",
+    "docs/media/handoffs/images/IMG-202-r2.json"
+  ],
+  "producer": "codex_imagegen",
+  "tool": "Codex built-in ImageGen",
+  "model_version": null,
+  "cost": {
+    "amount": null,
+    "basis": "Built-in ImageGen did not report a per-image charge. No external paid API was called."
+  },
+  "approval": "pending_owner_review",
+  "outputs": [
+    {
+      "asset_id": "CHAR-001",
+      "revision": 2,
+      "path": "assets/inbox/CHAR-001/CHAR-001-r2.png",
+      "sha256": "ccdcce3a359a85e88472ff736d2e64658b9772848ec8c4d6fb48b16fd9f69759",
+      "dimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "aspect_ratio": "4:3",
+      "format": "PNG",
+      "reference_ids": [],
+      "references": [],
+      "prompt": "Generate one photorealistic 4:3 landscape wardrobe reference still for a restrained 2042 Chinese urban thriller. An original semi-defined East Asian Chinese adult of average slim-to-medium build sits facing camera, straight-on, both hands resting separately palm down on their own thighs, natural anatomy and short clean nails. Frame from shoulders (cut cleanly below neck so head and face never enter) to lap. Tone of skin natural, soft neutral. Washed charcoal cotton long-sleeve crewneck, straight sleeves fully down to the wrists with visibly unrolled charcoal cuffs. A narrow, clearly visible slate-gray woven fabric watchband wraps ONLY their anatomical LEFT wrist, on frame RIGHT in this front view. Bare right wrist. No visible watch face, fingers relaxed and subtly staggered. Plain cool gray backdrop and soft overcast window light, skin and band legibility, natural Chinese urban cinema still. No text, brands, or watermarks. Frame with slight crop safety for an exact 4:3 delivery.",
+      "provenance": "One original candidate generated with Codex built-in ImageGen from the recorded prompt and any listed reference.",
+      "rights": "Original synthetic fictional character. No real-person likeness reference was supplied.",
+      "post_processing": "Copied the original generated PNG at its native dimensions.",
+      "continuity_review": {
+        "observations": "Both resting hands and short nails are clearly visible. The washed charcoal cuffs are unrolled. The slate woven watchband is on the subject's anatomical left wrist (frame right), and the right wrist is bare. The face is outside the frame.",
+        "limitation": "Casting was directed as East Asian Chinese. The face-free framing leaves the protagonist's identity unspecified."
+      }
+    },
+    {
+      "asset_id": "CHAR-002",
+      "revision": 2,
+      "path": "assets/inbox/CHAR-002/CHAR-002-r2.png",
+      "sha256": "0c43be192978e00db1c51c3181e1c2ebf5937a5d824c84433e83c201448479ca",
+      "dimensions": {
+        "width": 1664,
+        "height": 936
+      },
+      "aspect_ratio": "16:9",
+      "format": "PNG",
+      "reference_ids": [],
+      "references": [],
+      "prompt": "Generate one photorealistic 16:9 landscape cinematic medium close-up of Lin, an original fictional East Asian Chinese woman in her late 20s in a restrained 2042 Chinese urban thriller. Natural facial features, understated no-makeup realism and physical skin texture, dark straight side-parted hair tucked behind one ear, charcoal raincoat over muted olive knit. Quiet alert expression with mild genuine confusion. She looks slightly off-lens toward the viewer in a shallow three-quarter angle; BOTH eyes clearly visible and in focus, with lips and jaw fully readable as the sole on-screen H3 speaking reference. The face is clear of hair, props, and any handset. Frame upper chest to slightly above head, with breathing space around the face for final 16:9 framing. Soft gray dawn window light from one side and anonymous out-of-focus urban interior. Restrained 35mm film grain feel, authentic Chinese urban cinema casting, low saturation. No celebrity likeness, brands, text, overlays or watermark.",
+      "provenance": "One original candidate generated with Codex built-in ImageGen from the recorded prompt and any listed reference.",
+      "rights": "Original synthetic fictional character. No real-person likeness reference was supplied.",
+      "post_processing": "Edge crop from 1672 × 941 to 1664 × 936 at pixel offset (4, 0) for exact 16:9. No resampling.",
+      "continuity_review": {
+        "observations": "Lin reads as an East Asian woman in her late 20s, with dark side-parted hair tucked behind one ear, a charcoal raincoat and muted olive knit. Both eyes, the mouth and the jaw are clear in the shallow three-quarter angle under soft dawn light.",
+        "limitation": "Static visual suitability reviewed. Talking motion and lip sync have not been tested."
+      }
+    },
+    {
+      "asset_id": "CHAR-003",
+      "revision": 2,
+      "path": "assets/inbox/CHAR-003/CHAR-003-r2.png",
+      "sha256": "bc679f02c8746d784679925c3b2378d7921b9e7006c82f96343dcdffc58e1ba6",
+      "dimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "aspect_ratio": "4:3",
+      "format": "PNG",
+      "reference_ids": [
+        "CHAR-001"
+      ],
+      "references": [
+        {
+          "asset_id": "CHAR-001",
+          "revision": 2,
+          "path": "assets/inbox/CHAR-001/CHAR-001-r2.png",
+          "sha256": "ccdcce3a359a85e88472ff736d2e64658b9772848ec8c4d6fb48b16fd9f69759",
+          "role": "build, wardrobe and left wristband continuity"
+        }
+      ],
+      "prompt": "Generate one photorealistic 4:3 landscape character continuity reference for an anonymous East Asian Chinese adult duplicate in a restrained 2042 Chinese urban thriller. Input image CHAR-001-r2 is the exact wardrobe/body continuity anchor. Match the shoulder width and ordinary medium build, natural skin tone, washed charcoal cotton crewneck with the same straight full-length, unrolled cuffs, dark charcoal trousers, and especially the narrow slate-gray woven fabric watchband with subdued rectangular keeper on the anatomical LEFT wrist only. No new accessories. Change to a standing REAR three-quarter view from behind the subject's LEFT shoulder, about 25 degrees to the left of a direct rear view. Their LEFT arm is the near arm on screen LEFT; clearly expose a little skin and the narrow gray fabric strap immediately below the near charcoal cuff, with both arms relaxed, separated slightly from the body, and both empty hands included in frame. Right wrist bare. Subject looks very slightly to their right, away from the camera; only dark short hair and nape are discernible. Face fully concealed by head angle, no eye, cheek, nose, or mouth profile. Frame from a little above their head to mid-thigh with both hands inside comfortably. Soft gray diffuse dawn backlight and enough cool ambient fill to read the band and cuffs. Anonymous calm silhouette, everyday Chinese city wardrobe, plain subdued background, understated 35mm naturalism. No words, branding, watermark, dramatic rim light or objects in hand.",
+      "provenance": "One original candidate generated with Codex built-in ImageGen from the recorded prompt and any listed reference.",
+      "rights": "Original synthetic fictional character. No real-person likeness reference was supplied.",
+      "post_processing": "Copied the original generated PNG at its native dimensions.",
+      "continuity_review": {
+        "observations": "The rear three-quarter angle conceals facial features. The silhouette matches CHAR-001-r2 in build, washed charcoal cotton, unrolled cuffs and narrow slate woven band on the anatomical left wrist (frame left). Both hands are empty.",
+        "limitation": "The small keeper is partly seen from the rear, so the match was judged by strap material, width, tone and placement."
+      }
+    },
+    {
+      "asset_id": "LOC-002",
+      "revision": 2,
+      "path": "assets/inbox/LOC-002/LOC-002-r2.png",
+      "sha256": "a7dc9bae7c600046070ddc8ec8c2c7b9b98abc971ffc94f04e54d47d7f92bbfa",
+      "dimensions": {
+        "width": 1664,
+        "height": 936
+      },
+      "aspect_ratio": "16:9",
+      "format": "PNG",
+      "reference_ids": [
+        "LOC-001"
+      ],
+      "references": [
+        {
+          "asset_id": "LOC-001",
+          "revision": 1,
+          "path": "assets/inbox/LOC-001/LOC-001-r1.png",
+          "sha256": "477265bcc1bcc270c13bd38473cd14f0b70fea9306c84bae90ca9111503d222b",
+          "role": "dawn palette and apartment materials"
+        }
+      ],
+      "prompt": "Generate one 16:9 photorealistic cinematic environment still. Input reference LOC-001-r1 is the adjoining bedroom, use it for the same ordinary 2042 Chinese apartment's material language and cool gray-blue dawn exposure only. New frame INSIDE the living room. Eye-level MEDIUM desk shot, camera close to the desk, not a wide room establishing shot. Oak-veneer desk fills the left and central foreground to midground beneath a side window with horizontal blinds on camera left. A dark charcoal felt mat and an unbranded compact fold-out terminal dominate the desk. Its blank matte near-black display is large and clear, with a visible physical center pivot hinge linking the lifted display and slim tabletop base, lit by the window; clearly document-scale hardware separate from the tiny bedside handset. Use a slightly oblique view that exposes the actual hinge, with no keyboard lettering or baked interface. Put an unmarked ceramic mug behind and slightly beside the terminal so its handle and cup are plainly legible. Preserve a clear camera-right open doorway with a genuinely walkable passage to the entry visible beyond it. Keep the terminal, hinge, mug and right-hand passage inside the 16:9 safe crop. Match the reference's washed oak, eggshell walls, deep neutral shadows and diffused gray-blue window light, modest domestic detail. No person, handset, branding, text or overlay.",
+      "provenance": "One original candidate generated with Codex built-in ImageGen from the recorded prompt and any listed reference.",
+      "rights": "Original synthetic environment using the project-provided LOC-001-r1 reference.",
+      "post_processing": "Edge crop from 1672 × 941 to 1664 × 936 at pixel offset (4, 2) for exact 16:9. No resampling.",
+      "continuity_review": {
+        "observations": "The closer desk shot clearly shows the physical center hinge, blank matte screen, charcoal felt mat, unmarked mug and open passage on camera right. Window direction, cool gray-blue dawn, oak and wall finish match LOC-001-r1. The fold-out terminal is visibly distinct in scale and construction from the bedside handset.",
+        "limitation": "The far entry door and console are incidental background. Their hardware and cabinet sides differ from the LOC-003 request, which places the hardware on viewer right and the cabinet on viewer left."
+      }
+    }
+  ],
+  "commands": [
+    {
+      "check": "magick identify and shasum -a 256 on delivered PNGs",
+      "exit_code": 0
+    },
+    {
+      "check": "git status, git check-ignore on all four output paths, and git ls-files assets/inbox",
+      "exit_code": 0,
+      "note": "All four PNG paths are ignored by Git. The request file already had changes before this task."
+    }
+  ],
+  "blockers": [],
+  "next_action": "agy verifies the files and SHA-256 checksums and forwards the candidates for owner review."
+}

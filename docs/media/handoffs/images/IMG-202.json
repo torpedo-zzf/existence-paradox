@@ -1,0 +1,237 @@
+{
+  "task_id": "IMG-202",
+  "base_commit": "9a41be3",
+  "branch": "phase2/img-202",
+  "status": "review",
+  "request_file": "episodes/01/media-requests.json",
+  "asset_ids": [
+    "CHAR-001",
+    "CHAR-002",
+    "CHAR-003",
+    "LOC-001",
+    "LOC-002",
+    "LOC-003",
+    "LOC-004"
+  ],
+  "tool": "image_gen.imagegen (Codex built-in)",
+  "model": "not disclosed by tool",
+  "tool_check": {
+    "status": "available",
+    "discovery": "The current tool registry exposed image_gen__imagegen.",
+    "execution": "The first live built-in invocation for CHAR-001 returned a PNG data URL and a local PNG path. The reported file was copied to the worktree and sips read 1448 × 1086 pixels. Six further calls returned local PNGs. Four calls used local generated PNGs as visual references, including the new standing composition derived from CHAR-001.",
+    "entitlement": "Built-in generation and image-conditioned generation worked in this session. Account entitlement details and quotas were not exposed.",
+    "billing": "unknown; the built-in tool returned no billing data. No separate API, external provider, or tool substitution was used.",
+    "invocations": 7
+  },
+  "rights": "Original fictional AI-generated candidate imagery. Prompts requested no real-person likeness or branding. The only image inputs were generated within this task. Production clearance and approval are pending owner review.",
+  "limitations": [
+    "LOC-002 needs revision for terminal detail and entry-passage geography. LOC-003 establishes its own door axis, but the exact relation to the LOC-002 desk remains open.",
+    "Native widescreen PNGs are 1672 × 941, approximately 16:9. Source files were preserved byte for byte.",
+    "This batch verifies image-conditioned generation for its assets. A dedicated in-place editing test was outside the requested scope."
+  ],
+  "blockers": [],
+  "next_action": "agy verifies the candidate files and hashes, reviews the LOC-002 framing, and obtains owner approval before freezing any reference revision.",
+  "outputs": [
+    {
+      "asset_id": "CHAR-001",
+      "revision": 1,
+      "kind": "character_reference",
+      "shot_id": "EP01-S01",
+      "path": "assets/inbox/CHAR-001/CHAR-001-r1.png",
+      "requested_aspect_ratio": "4:3",
+      "input_reference_ids": [],
+      "prompt": "Use case: photorealistic-natural. Create a single 4:3 landscape frame for the Episode 01 visual reference library. Original semi-defined adult POV wardrobe reference for a restrained 2042 thriller. Natural relaxed hands, short nails, washed charcoal cuffs and a narrow slate woven watchband on the left wrist. Crop from shoulders to lap with both hands resting naturally in view, against a plain cool gray surface in soft window light. Exclude faces, logos, writing and watermarks. Keep the entire head outside the upper edge. Angle the left wrist naturally so the slim woven band is visibly on the anatomical left hand. Preserve lifelike hand proportions and diffuse cool gray-blue dawn with gentle shadow detail. One uninterrupted photographic composition with no panels or labels.",
+      "continuity_review": {
+        "status": "candidate",
+        "notes": "Both relaxed hands and short nails are readable. The narrow slate woven band is on the anatomical left wrist. The washed charcoal cuffs and shoulder build provide continuity anchors. The head is entirely outside the frame."
+      },
+      "approval": "pending_owner_review",
+      "sha256": "0e012ed8bf8d5ec8aa22a1dc50da82c8cb47fe136c04a1049f72bd5e98383b20",
+      "dimensions": {
+        "width": 1448,
+        "height": 1086
+      }
+    },
+    {
+      "asset_id": "CHAR-002",
+      "revision": 1,
+      "kind": "character_reference",
+      "shot_id": "EP01-S05",
+      "path": "assets/inbox/CHAR-002/CHAR-002-r1.png",
+      "requested_aspect_ratio": "16:9",
+      "input_reference_ids": [],
+      "prompt": "Use case: photorealistic-natural. Create one cinematic 16:9 landscape still for the Episode 01 visual reference library. Single caller-side medium close-up of an original fictional adult just before asking a familiar caller a question. Dark side-parted hair tucked behind one ear, charcoal raincoat over a muted olive knit, quiet alert expression. Sees the listener just off lens. Three-quarter angle with eyes and mouth clearly visible, no handset across the face. Soft gray dawn from one side and anonymous out-of-focus background. No likeness of a real person, identifiable location, brand, text or overlay. Frame from upper chest with comfortable headroom, mouth fully unobstructed, head turned only slightly so both eyes and the full mouth are readable. Keep the single face and collar in clean soft focus, with soft side light and natural skin texture. Restrained, low saturation, tactile materials and soft gray-blue dawn, with detail preserved in the shadows. Exclude logos, words, watermarks, graphics, and collage layout.",
+      "continuity_review": {
+        "status": "candidate",
+        "notes": "Single fictional adult with an unobstructed mouth and both eyes visible. Dark side part, exposed ear, charcoal raincoat collar and olive knit read under cool side light. The tight framing clips the top of the hair. Casting and reuse approval remain pending."
+      },
+      "approval": "pending_owner_review",
+      "sha256": "b1e305e349189ab5b481798b9ca0e6566ca8c4d25454f2f782dee9d89ac01ab3",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "asset_id": "CHAR-003",
+      "revision": 1,
+      "kind": "character_reference",
+      "shot_id": "EP01-S08",
+      "path": "assets/inbox/CHAR-003/CHAR-003-r1.png",
+      "requested_aspect_ratio": "4:3",
+      "input_reference_ids": [
+        "CHAR-001"
+      ],
+      "prompt": "Use case: photorealistic-natural. Create one cinematic 4:3 landscape still for the Episode 01 visual reference library. Create an anonymous adult rear three-quarter silhouette that echoes the shoulder width, charcoal cuff and left-wrist slate band implied by CHAR-001. Natural stance, arms at rest, soft gray diffuse backlight, quiet everyday clothing. Keep the face concealed and the hands empty. No branding, words or dramatic rim lighting. Use the supplied CHAR-001 image purely as source evidence for shoulder width, washed charcoal overshirt cuffs, and the narrow slate woven band on the anatomical left wrist. Create a new rear three-quarter standing composition in which the left wrist is closest to the camera and the band remains just legible in the soft shadow. Match the source build and materials, with the silhouette conveying identity ambiguity. The subject looks away, with no visible facial profile or fingers holding an object. Restrained, low saturation, tactile materials and soft gray-blue dawn, with detail preserved in the shadows. Exclude logos, words, watermarks, graphics, and collage layout.",
+      "continuity_review": {
+        "status": "candidate_with_note",
+        "notes": "The rear three-quarter pose hides the face and both hands are empty. Shoulder build, charcoal overshirt and slate band on the left wrist match the CHAR-001 anchors. The cuff is turned higher, exposing more forearm. The distant landscape is character-reference backdrop only."
+      },
+      "approval": "pending_owner_review",
+      "sha256": "a147f2fd07bca668a224dd74eb853131e91889c7bdba8b8040d0b78a06452ec2",
+      "dimensions": {
+        "width": 1448,
+        "height": 1086
+      }
+    },
+    {
+      "asset_id": "LOC-001",
+      "revision": 1,
+      "kind": "environment",
+      "shot_id": "EP01-S01",
+      "path": "assets/inbox/LOC-001/LOC-001-r1.png",
+      "requested_aspect_ratio": "16:9",
+      "input_reference_ids": [],
+      "prompt": "Use case: photorealistic-natural. Create one cinematic 16:9 landscape still for the Episode 01 visual reference library. View from pillow height in an ordinary 2042 apartment bedroom at 06:42. Horizontal blinds camera left, low oak nightstand under the right edge of the window, washed gray linen low in frame and an opening toward the living room. Place an unbranded palm-sized graphite civic handset on the near corner of the nightstand, with rounded off-black glass, a lower seam and a subdued red glow on the oak. Leave its screen blank. Cool gray-blue dawn and believable shadows. No people or text. Keep the near corner and the small, separate handset clearly visible in usable focus. Restrained owner-occupied interiors, eggshell walls, laminated oak and just a little contact wear. Position the opening so the adjoining living room can plausibly connect to this bedroom. Keep central image space available for interactive overlays. Restrained, low saturation, tactile materials and soft gray-blue dawn, with detail preserved in the shadows. Exclude logos, words, watermarks, graphics, and collage layout.",
+      "continuity_review": {
+        "status": "candidate",
+        "notes": "Camera-left blinds, low oak nightstand, gray bedding and the opening toward the living room are visible. PROP-001 has rounded blank glass, a dark graphite body with a lower seam and a red indicator reflecting on the oak."
+      },
+      "approval": "pending_owner_review",
+      "sha256": "477265bcc1bcc270c13bd38473cd14f0b70fea9306c84bae90ca9111503d222b",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "asset_id": "LOC-002",
+      "revision": 1,
+      "kind": "environment",
+      "shot_id": "EP01-S02",
+      "path": "assets/inbox/LOC-002/LOC-002-r1.png",
+      "requested_aspect_ratio": "16:9",
+      "input_reference_ids": [
+        "LOC-001"
+      ],
+      "prompt": "Use case: photorealistic-natural. Create one cinematic 16:9 landscape still for the Episode 01 visual reference library. Eye-level view of the living room and desk in the same lived-in 2042 apartment. Reuse the muted oak and cool window light from LOC-001. Oak-veneer desk under a side window, compact fold-out terminal with a clean blank display on a felt mat, unmarked ceramic mug behind it and entry passage to camera right. Show the hinge and room geometry. No people, brands or baked interface. Use the supplied LOC-001 image for continuity of cool dawn, medium oak, painted walls and black window frames. This is a new eye-level camera position within the adjoining living room. Keep the screen angled to read as one broad blank low-glare surface in the center, the hinge clearly exposed, and the right-hand entry passage legible in depth. The window light is slightly lifted from 06:42 to 06:44. Natural photographic realism with detail preserved in the shadows. Preserve a clean frame without text, watermark, branding, or baked UI.",
+      "continuity_review": {
+        "status": "needs_revision",
+        "notes": "The living room carries over the oak, dark window framing, cool dawn and visible furnishings from LOC-001. The blank fold-out terminal and mug are recognizable and the terminal is distinct from PROP-001. The desk is too distant and is nested inside the right-hand opening. A separate right-hand entry passage is not established, the felt mat cannot be verified, and the hinge is too small for a stable insert reference."
+      },
+      "approval": "pending_owner_review",
+      "sha256": "c329664214fb376b795d760b45d37e000b2e1c1d805ff5df561b648c413a56cb",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "asset_id": "LOC-003",
+      "revision": 1,
+      "kind": "environment",
+      "shot_id": "EP01-S03",
+      "path": "assets/inbox/LOC-003/LOC-003-r1.png",
+      "requested_aspect_ratio": "16:9",
+      "input_reference_ids": [
+        "LOC-002"
+      ],
+      "prompt": "Use case: photorealistic-natural. Create one cinematic 16:9 landscape still for the Episode 01 visual reference library. Interior view of the apartment entryway at dawn, using the living room's cool spill from behind camera. Ash door with a brushed-metal lever and flush charcoal biometric panel on the viewer's right, half-height shoe cabinet on the left, dim amber practical and a narrow gap below the door. The panel has a recessed matte palm pad and one tiny status light. No people, names, signage, text or branded hardware. Use the supplied LOC-002 still as continuity reference for the living-room spill, timber floor and painted walls. Place the camera inside the home, looking straight at the closed door at eye level. From the viewer's perspective, the lever and flush palm-pad panel are both on the right, with the half-height cabinet distinctly left. The panel shows one pin-sized amber status light. Add a narrow strip of corridor light under the door, leaving entry shadows legible. Natural photographic realism with detail preserved in the shadows. Preserve a clean frame without text, watermark, branding, or baked UI.",
+      "continuity_review": {
+        "status": "candidate_with_note",
+        "notes": "The ash door, viewer-right lever and charcoal panel, and viewer-left shoe cabinet establish the intended axis. The recessed palm pad, single amber indicator, cool living-room light and warm under-door strip are readable. Material continuity with LOC-002 is visible, while the exact desk-to-entry sightline remains unresolved."
+      },
+      "approval": "pending_owner_review",
+      "sha256": "473a7ea5caad1726a148bd89fca871e9e318794c99b3c102c290834cf6b38e4c",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "asset_id": "LOC-004",
+      "revision": 1,
+      "kind": "environment",
+      "shot_id": "EP01-S08",
+      "path": "assets/inbox/LOC-004/LOC-004-r1.png",
+      "requested_aspect_ratio": "16:9",
+      "input_reference_ids": [
+        "LOC-001"
+      ],
+      "prompt": "Use case: photorealistic-natural. Create one cinematic 16:9 landscape still for the Episode 01 visual reference library. Quiet street corner at 06:56 in the same 2042 neighborhood. From beneath the near-side unbranded convenience-store canopy, look across a wet crossing to one signal pole at the far curb. Shallow gray dawn fog, ordinary concrete and subdued reflections from the canopy light. Preserve a clear near-to-far sightline. No people, lettering, logos or futuristic street displays. Use the supplied LOC-001 still only as a color and lighting reference for the same neighborhood slightly later in the dawn progression, as seen now from street level. Show a sliver of the dark near canopy overhead and its muted light on the wet pavement below it. Use believable mid-rise urban buildings and a clear crossing axis toward one far signal pole, leaving room for a later far figure. Natural photographic realism with detail preserved in the shadows. Preserve a clean frame without text, watermark, branding, or baked UI.",
+      "continuity_review": {
+        "status": "candidate",
+        "notes": "The near canopy, wet crosswalk and one far signal pole remain readable through shallow fog. Cool dawn and restrained warm reflections fit the LOC-001 palette. The plate has no figures and leaves the near-to-far sightline open. No readable store signage is visible."
+      },
+      "approval": "pending_owner_review",
+      "sha256": "005e9282936587b91e771c18acd270f195028f5c25cd816384c2d30d73d6366c",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    }
+  ],
+  "changed_files": [
+    "assets/inbox/CHAR-001/CHAR-001-r1.png",
+    "assets/inbox/CHAR-002/CHAR-002-r1.png",
+    "assets/inbox/CHAR-003/CHAR-003-r1.png",
+    "assets/inbox/LOC-001/LOC-001-r1.png",
+    "assets/inbox/LOC-002/LOC-002-r1.png",
+    "assets/inbox/LOC-003/LOC-003-r1.png",
+    "assets/inbox/LOC-004/LOC-004-r1.png",
+    "docs/media/handoffs/images/IMG-202.json"
+  ],
+  "commands": [
+    {
+      "command": "git rev-parse HEAD",
+      "exit_status": 0
+    },
+    {
+      "command": "git branch --show-current",
+      "exit_status": 0
+    },
+    {
+      "command": "sips -g pixelWidth -g pixelHeight assets/inbox/CHAR-001/CHAR-001-r1.png",
+      "exit_status": 0
+    },
+    {
+      "command": "sips -g pixelWidth -g pixelHeight assets/inbox/CHAR-002/CHAR-002-r1.png",
+      "exit_status": 0
+    },
+    {
+      "command": "sips -g pixelWidth -g pixelHeight assets/inbox/CHAR-003/CHAR-003-r1.png",
+      "exit_status": 0
+    },
+    {
+      "command": "sips -g pixelWidth -g pixelHeight assets/inbox/LOC-001/LOC-001-r1.png",
+      "exit_status": 0
+    },
+    {
+      "command": "sips -g pixelWidth -g pixelHeight assets/inbox/LOC-002/LOC-002-r1.png",
+      "exit_status": 0
+    },
+    {
+      "command": "sips -g pixelWidth -g pixelHeight assets/inbox/LOC-003/LOC-003-r1.png",
+      "exit_status": 0
+    },
+    {
+      "command": "sips -g pixelWidth -g pixelHeight assets/inbox/LOC-004/LOC-004-r1.png",
+      "exit_status": 0
+    },
+    {
+      "command": "git check-ignore assets/inbox/CHAR-001/CHAR-001-r1.png assets/inbox/CHAR-002/CHAR-002-r1.png assets/inbox/CHAR-003/CHAR-003-r1.png assets/inbox/LOC-001/LOC-001-r1.png assets/inbox/LOC-002/LOC-002-r1.png assets/inbox/LOC-003/LOC-003-r1.png assets/inbox/LOC-004/LOC-004-r1.png",
+      "exit_status": 0
+    }
+  ],
+  "acceptance_evidence": "All seven output files were inspected visually, matched byte for byte against the built-in PNGs, checked with sips, and verified as Git-ignored. Each exact generation prompt and each continuity review are recorded with its file."
+}

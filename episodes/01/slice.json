@@ -2,7 +2,7 @@
   "id": "ep01-slice",
   "version": 1,
   "title": "存在悖论 · 第一章：查无此人",
-  "subtitle": "Phase 1 离线可玩垂直切片（占位素材版）",
+  "subtitle": "Phase 2 试拍素材接入版（真图 + 768P 原生音画视频）",
   "startScene": "wake",
   "evidence": [
     {
@@ -42,9 +42,9 @@
       "timecode": "2042-11-25 06:42",
       "mood": "unease",
       "media": {
-        "type": "placeholder",
-        "src": null,
-        "poster": null,
+        "type": "video",
+        "src": "./assets/generated/video/EP01-S01-VID01-768p.mp4",
+        "poster": "./assets/inbox/nano-banana/EP01-S01-KF01-r1.png",
         "caption": "【占位画面】微亮的灰蓝晨光透过百叶窗，床头终端屏幕泛出克制的红光，空气安静得反常。",
         "palette": "cold-slate"
       },
@@ -102,8 +102,8 @@
       "timecode": "2042-11-25 06:44",
       "mood": "investigation",
       "media": {
-        "type": "placeholder",
-        "src": null,
+        "type": "still",
+        "src": "./assets/inbox/LOC-002/LOC-002-r2.png",
         "poster": null,
         "caption": "【占位画面】客厅书桌上的折叠终端弹出两层日志：左侧是玄关门锁记录，右侧是一份未归档的诊所加密缓存。",
         "palette": "steel-cyan"
@@ -156,8 +156,8 @@
       "timecode": "2042-11-25 06:46",
       "mood": "investigation",
       "media": {
-        "type": "placeholder",
-        "src": null,
+        "type": "still",
+        "src": "./assets/inbox/LOC-003/LOC-003-r1.png",
         "poster": null,
         "caption": "【占位画面】特写：玄关门锁屏幕显示“22:18 掌纹匹配 99.8% · 外出”，下一行空白。",
         "palette": "amber-dusk"
@@ -210,8 +210,8 @@
       "timecode": "2042-11-25 06:47",
       "mood": "revelation",
       "media": {
-        "type": "placeholder",
-        "src": null,
+        "type": "still",
+        "src": "./assets/inbox/LOC-002/LOC-002-r2.png",
         "poster": null,
         "caption": "【占位画面】加密文档在暗色屏幕上展开，底部的电子签名与你的笔迹分毫不差。",
         "palette": "deep-indigo"
@@ -252,9 +252,10 @@
       "timecode": "2042-11-25 06:49",
       "mood": "revelation",
       "media": {
-        "type": "placeholder",
-        "src": null,
-        "poster": null,
+        "type": "video",
+        "src": "./assets/generated/video/EP01-S05-VID01-r4-768p.mp4",
+        "poster": "./assets/inbox/nano-banana/EP01-S05-KF01-r1.png",
+        "overlay": "video_call",
         "caption": "【占位画面】声波在屏幕上轻微颤动。窗玻璃倒映着你的剪影，而听筒里传来熟悉却令人背脊发凉的回答。",
         "palette": "crimson-slate"
       },
@@ -324,8 +325,8 @@
       "timecode": "2042-11-25 06:53",
       "mood": "unease",
       "media": {
-        "type": "placeholder",
-        "src": null,
+        "type": "still",
+        "src": "./assets/inbox/LOC-003/LOC-003-r1.png",
         "poster": null,
         "caption": "【占位画面】门外走廊感应灯亮起。终端屏幕一侧是本地离线封装进度条，另一侧是林发来的街角坐标。",
         "palette": "cold-slate"
@@ -391,8 +392,8 @@
       "timecode": "2042-11-25 06:55",
       "mood": "aftermath",
       "media": {
-        "type": "placeholder",
-        "src": null,
+        "type": "still",
+        "src": "./assets/inbox/LOC-003/LOC-003-r1.png",
         "poster": null,
         "caption": "【占位画面】离线加密卡弹出红灯转绿；同一瞬间，门锁响起掌纹验证通过的提示音，门把手缓缓下压。",
         "palette": "deep-indigo"
@@ -425,8 +426,8 @@
       "timecode": "2042-11-25 06:56",
       "mood": "aftermath",
       "media": {
-        "type": "placeholder",
-        "src": null,
+        "type": "still",
+        "src": "./assets/inbox/LOC-004/LOC-004-r1.png",
         "poster": null,
         "caption": "【占位画面】晨雾中的街角，林脸色苍白地攥着备用钥匙，目光越过你的肩膀望向马路对面的红绿灯。",
         "palette": "amber-dusk"
