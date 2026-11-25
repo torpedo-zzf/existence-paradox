@@ -1,0 +1,265 @@
+{
+  "episode_id": "EP01",
+  "requests": [
+    {
+      "asset_id": "CHAR-001",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "kind": "character_reference",
+      "producer": "codex_imagegen",
+      "prompt": "Original semi-defined adult POV wardrobe reference for a restrained 2042 thriller. Natural relaxed hands, short nails, washed charcoal cuffs and a narrow slate woven watchband on the left wrist. Crop from shoulders to lap with both hands resting naturally in view, against a plain cool gray surface in soft window light. Exclude faces, logos, writing and watermarks.",
+      "reference_ids": [],
+      "aspect_ratio": "4:3",
+      "acceptance": [
+        "Hand anatomy, cuff and left wristband are easy to verify",
+        "Facial identity remains unspecified"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "CHAR-002",
+      "shot_id": "EP01-S05",
+      "revision": 1,
+      "kind": "character_reference",
+      "producer": "codex_imagegen",
+      "prompt": "Single caller-side medium close-up of an original fictional adult just before asking a familiar caller a question. Dark side-parted hair tucked behind one ear, charcoal raincoat over a muted olive knit, quiet alert expression. Sees the listener just off lens. Three-quarter angle with eyes and mouth clearly visible, no handset across the face. Soft gray dawn from one side and anonymous out-of-focus background. No likeness of a real person, identifiable location, brand, text or overlay.",
+      "reference_ids": [],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "One original face and readable mouth in a single frame suitable as a speaking reference",
+        "Hair part, face shape and clothing approved for reuse"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "CHAR-003",
+      "shot_id": "EP01-S08",
+      "revision": 1,
+      "kind": "character_reference",
+      "producer": "codex_imagegen",
+      "prompt": "Create an anonymous adult rear three-quarter silhouette that echoes the shoulder width, charcoal cuff and left-wrist slate band implied by CHAR-001. Natural stance, arms at rest, soft gray diffuse backlight, quiet everyday clothing. Keep the face concealed and the hands empty. No branding, words or dramatic rim lighting.",
+      "reference_ids": [
+        "CHAR-001"
+      ],
+      "aspect_ratio": "4:3",
+      "acceptance": [
+        "Clothing and wrist anchors match CHAR-001",
+        "No readable face or new identity clue"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "LOC-001",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "kind": "environment",
+      "producer": "codex_imagegen",
+      "prompt": "View from pillow height in an ordinary 2042 apartment bedroom at 06:42. Horizontal blinds camera left, low oak nightstand under the right edge of the window, washed gray linen low in frame and an opening toward the living room. Place an unbranded palm-sized graphite civic handset on the near corner of the nightstand, with rounded off-black glass, a lower seam and a subdued red glow on the oak. Leave its screen blank. Cool gray-blue dawn and believable shadows. No people or text.",
+      "reference_ids": [],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "Blinds, nightstand and handset position read in a single shot",
+        "PROP-001 design is reusable and its screen is clear for HTML"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "LOC-002",
+      "shot_id": "EP01-S02",
+      "revision": 1,
+      "kind": "environment",
+      "producer": "codex_imagegen",
+      "prompt": "Eye-level view of the living room and desk in the same lived-in 2042 apartment. Reuse the muted oak and cool window light from LOC-001. Oak-veneer desk under a side window, compact fold-out terminal with a clean blank display on a felt mat, unmarked ceramic mug behind it and entry passage to camera right. Show the hinge and room geometry. No people, brands or baked interface.",
+      "reference_ids": [
+        "LOC-001"
+      ],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "Desk hinge, felt mat, mug and right-hand passage provide stable anchors",
+        "Fold-out display is distinct from the bedside handset"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "LOC-003",
+      "shot_id": "EP01-S03",
+      "revision": 1,
+      "kind": "environment",
+      "producer": "codex_imagegen",
+      "prompt": "Interior view of the apartment entryway at dawn, using the living room's cool spill from behind camera. Ash door with a brushed-metal lever and flush charcoal biometric panel on the viewer's right, half-height shoe cabinet on the left, dim amber practical and a narrow gap below the door. The panel has a recessed matte palm pad and one tiny status light. No people, names, signage, text or branded hardware.",
+      "reference_ids": [
+        "LOC-002"
+      ],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "Door axis, lever, panel and cabinet geography read clearly",
+        "Light from both sides of the threshold can be matched in later shots"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "LOC-004",
+      "shot_id": "EP01-S08",
+      "revision": 1,
+      "kind": "environment",
+      "producer": "codex_imagegen",
+      "prompt": "Quiet street corner at 06:56 in the same 2042 neighborhood. From beneath the near-side unbranded convenience-store canopy, look across a wet crossing to one signal pole at the far curb. Shallow gray dawn fog, ordinary concrete and subdued reflections from the canopy light. Preserve a clear near-to-far sightline. No people, lettering, logos or futuristic street displays.",
+      "reference_ids": [
+        "LOC-001"
+      ],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "Canopy, crossing and far signal remain legible in shallow fog",
+        "Dawn palette fits the apartment sequence"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "EP01-S01-KF01",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "kind": "keyframe",
+      "producer": "agy_nano_banana",
+      "prompt": "Edit the approved LOC-001 bedside plate. Add only the edge of a resting left hand and charcoal cuff low in the frame, using CHAR-001 for hand proportions and the narrow slate woven wristband. Preserve camera height, window and blind geometry, linen, handset placement, red spill and blank screen. Keep the face outside the frame and leave the display clear for HTML.",
+      "reference_ids": [
+        "LOC-001",
+        "CHAR-001"
+      ],
+      "aspect_ratio": "16:9",
+      "acceptance": [
+        "Location and handset match the approved base plate",
+        "Left hand and wristband match CHAR-001 with natural anatomy and no baked UI"
+      ],
+      "status": "requested",
+      "paid_approval_required": true
+    },
+    {
+      "asset_id": "PROP-002",
+      "shot_id": "EP01-S03",
+      "revision": 1,
+      "kind": "prop",
+      "producer": "comfyui_qwen_image_2_1",
+      "prompt": "Use the approved LOC-003 plate for a tight oblique reference of its smart lock. Match the brushed-metal lever on the viewer's right, the flush charcoal panel, matte palm pad, single tiny amber light and visible ash grain. Keep the surrounding jamb and edge of the door as scale cues. No hands, lettering, logos or interface readout.",
+      "reference_ids": [
+        "LOC-003"
+      ],
+      "aspect_ratio": "4:3",
+      "acceptance": [
+        "Mounting side, relative scale and hardware match LOC-003",
+        "One amber indicator and a clean panel surface"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "PROP-003",
+      "shot_id": "EP01-S04",
+      "revision": 1,
+      "kind": "prop",
+      "producer": "comfyui_qwen_image_2_1",
+      "prompt": "Create a straight-on blank document plate for compositing onto the fold-out terminal from LOC-002. The cached clinic receipt is a plain, low-contrast gray field with muted cool edge shading. Leave room for the authored seal, document body and signature. No writing, pseudo-glyphs, signatures, stamps, hardware lettering or baked controls.",
+      "reference_ids": [
+        "LOC-002"
+      ],
+      "aspect_ratio": "4:3",
+      "acceptance": [
+        "Clean plate can be corner-pinned to the approved screen",
+        "Authored seal, signature and receipt text remain separate HTML content"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "VOICE-001",
+      "shot_id": "EP01-S05",
+      "revision": 1,
+      "kind": "voice_reference",
+      "producer": "omnivoice_local",
+      "prompt": "Synthesize the supplied Mandarin line verbatim as a clean, dry sample of an original fictional adult voice for Lin. Use clear familiar speech, mild confusion and a slight pause before the question about the spare key. Keep natural articulation across both questions. Single speaker, no imitation of a real voice, background, music or phone processing.",
+      "reference_ids": [],
+      "aspect_ratio": "16:9",
+      "voice_id": "VOICE-001",
+      "duration_seconds": 8,
+      "dialogue_text": "“喂？你怎么又换了备用线路打过来？十分钟前你不是刚在楼下拿走备用钥匙吗？”",
+      "acceptance": [
+        "Eight-second speech-only sample with an exact transcript and no clipping",
+        "Voice identity and rights approved for CHAR-002"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "VOICE-002",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "kind": "voice_reference",
+      "producer": "omnivoice_local",
+      "prompt": "Synthesize the supplied Mandarin civic announcement as an original device voice shared by the terminal and lock. Read the announcement heading and body with even pitch, measured diction and a brief pause between them. Single speaker, dry speech, no imitation, effects or music.",
+      "reference_ids": [],
+      "aspect_ratio": "16:9",
+      "voice_id": "VOICE-002",
+      "duration_seconds": 9,
+      "dialogue_text": "【系统通告】您的公民身份编号已于 72 小时前完成永久注销。注销原因：自然人已死亡。",
+      "acceptance": [
+        "Nine-second speech-only sample with an exact transcript and no clipping",
+        "One approved voice identity for PROP-001 and PROP-002"
+      ],
+      "status": "requested",
+      "paid_approval_required": false
+    },
+    {
+      "asset_id": "EP01-S01-VID01",
+      "shot_id": "EP01-S01",
+      "revision": 1,
+      "kind": "video",
+      "producer": "metaso_minimax_h3_direct",
+      "prompt": "768P pilot. Use the approved bedside keyframe as the composition anchor. One five-second eye-height POV shot with a barely perceptible push in. A resting hand remains low in frame with the slate wristband steady. Cool dawn grazes the blinds and the handset casts a low red light. Keep the glass blank and the room geometry fixed. Native sound is a distant light-rail rumble and soft indoor room tone. No speech, score, brands or overlays.",
+      "reference_ids": [
+        "EP01-S01-KF01"
+      ],
+      "aspect_ratio": "16:9",
+      "duration_seconds": 5,
+      "video_provider": "metaso",
+      "audio_mode": "native_ambience",
+      "acceptance": [
+        "Owner approves the 768P job, upload, budget and attempts before submission",
+        "Stable hand, handset and room continuity, with a native ambience stream and no speech"
+      ],
+      "status": "requested",
+      "paid_approval_required": true
+    },
+    {
+      "asset_id": "EP01-S05-VID01",
+      "shot_id": "EP01-S05",
+      "revision": 1,
+      "kind": "video",
+      "producer": "metaso_minimax_h3_direct",
+      "prompt": "768P pilot. Picture 1 (CHAR-002) anchors the caller's face, wardrobe and framing. Audio 1 (VOICE-001) is the voice reference for the sole speaker. One static ten-second medium close-up at the caller end of a voice call. Let a quiet breath lead into the two questions, with genuine confusion surfacing in the second. The caller says exactly <d>[Chinese] “喂？你怎么又换了备用线路打过来？十分钟前你不是刚在楼下拿走备用钥匙吗？”</d> Hold the expression after the final word. Keep the mouth visible and naturally synchronized with native dialogue. In the background, let one distant vehicle pass quietly. No music, additional voices, labels or captions.",
+      "reference_ids": [
+        "CHAR-002",
+        "VOICE-001"
+      ],
+      "aspect_ratio": "16:9",
+      "duration_seconds": 10,
+      "video_provider": "metaso",
+      "audio_mode": "native_reference_dialogue",
+      "audio_reference_ids": [
+        "VOICE-001"
+      ],
+      "dialogue_text": "“喂？你怎么又换了备用线路打过来？十分钟前你不是刚在楼下拿走备用钥匙吗？”",
+      "acceptance": [
+        "Owner approves the 768P job, image and audio staging, budget and attempts before submission",
+        "Native dialogue matches the exact authored line with the correct speaker, reference timbre and natural lip sync"
+      ],
+      "status": "requested",
+      "paid_approval_required": true
+    }
+  ]
+}

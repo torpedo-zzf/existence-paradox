@@ -1,0 +1,60 @@
+# Episode 01 visual bible · Identity Not Found
+
+VIS-201 creative handoff for owner review. Use the eight authored scenes in [slice.json](../../../episodes/01/slice.json) as the source for story beats and dialogue. The [request batch](../../../episodes/01/media-requests.json) defines revision 1 candidates for a two-shot pilot and the supporting references. All other shot coverage below is a plan for the full slice.
+
+## STYLE-001 · Restrained 2042 psychological thriller
+
+The apartment looks inhabited before it looks advanced. Use eggshell paint, laminated oak, matte black hardware, washed cotton and a handful of practical objects with wear at their points of contact. Civic systems live in ordinary devices. Rounded glass, a pin-sized indicator and a thin fold-out display are enough to place the story in 2042.
+
+- **Light and color.** Begin at 06:42 with cool gray-blue daylight diffused by horizontal blinds. Let the same sky lift the room slightly through 06:55. Use amber from the entry fixture, a dim red terminal spill and a brief restrained green confirmation as motivated accents. At 06:56, use shallow street fog, wet asphalt and a muted awning light. Retain shadow detail on faces and hands.
+- **Camera.** Compose 16:9 with space for responsive HTML subtitles and choices, keeping faces and clue-bearing hardware in the central area. Use eye-height close and medium POV coverage, stable axes and a short held reaction before a cut. Reserve macro framing for physical evidence and the lever. Keep Lin's mouth unobstructed in the caller-side pilot. Leave the protagonist's face outside the frame and use weak reflections and occlusion at the edges.
+- **Image exclusions.** Use original fictional faces and industrial design. Exclude recognizable real-person likenesses, brands, watermarks, holograms and baked-in text or interface graphics. Display surfaces carry only off-black glass and soft light. Captions, clocks, legal notice, log entries, clinic seal and signature, call waveform, progress, warning and evidence labels come from the HTML layer.
+- **Story and sound.** Show that systems issue claims while faces and objects give the player room to doubt. Preserve evidence visibility and route timing from the authored state. Let distant light rail, blinds, the elevator and the lock carry tension. Keep native dialogue intact and any later instrumental score on a separate track.
+
+## Immutable reference IDs
+
+Keep each ID bound to the same design and story function. Approve and freeze the asset revision and hash before reuse. Derive angle, pose and lighting variants under their shot asset IDs. STYLE-001 is this written look reference. PROP-001 is anchored in LOC-001 for this batch, with a dedicated insert planned in full-slice coverage.
+
+| ID | Canonical reference | Continuity anchors |
+| --- | --- | --- |
+| STYLE-001 | Episode look | Cool dawn, low-saturation materials, motivated indicators, restrained eye-height framing and unlettered image plates. |
+| CHAR-001 | Protagonist POV | Semi-defined adult hands and partial silhouette only. Short nails, washed charcoal cuff, narrow slate woven watchband on the left wrist. Keep face, name and casting open. Match the wrist, cuff and hand proportions across shots. |
+| CHAR-002 | Lin | Original fictional adult, dark side-parted hair tucked behind one ear, charcoal raincoat over a muted olive knit. Composed posture, concern expressed through a small breath and a held look. Preserve face shape, hair part and collar in the pilot and street reverse. |
+| CHAR-003 | Duplicate silhouette | Echo CHAR-001's shoulder width, charcoal cuff and left-wrist band. Use a thin shadow under the door or a human outline across the road. Keep facial detail and identity ambiguous. |
+| LOC-001 | Apartment Bedroom | Blinds camera left, low oak nightstand directly beneath the right edge of the window, washed gray bed linen, handset on the near corner of the nightstand. The open room axis leads toward LOC-002. |
+| LOC-002 | Apartment Living Room & Desk | Oak-veneer desk beneath a side window, fold-out terminal on a felt mat, unmarked ceramic mug behind it, matte glass catching the POV reflection. Entry passage camera right from the desk POV. |
+| LOC-003 | Apartment Entryway & Smart Lock | Ash door, lever and panel on the viewer's right when facing the door from inside, half-height shoe cabinet on the left, cool living room spill behind camera. Corridor sensor light is visible beneath the closed door. |
+| LOC-004 | Street Corner Dawn Fog | Unbranded convenience-store canopy on the near side, wet crossing, signal pole at the far curb and shallow fog. Lin stands beneath the near canopy, the far silhouette stays across the road. |
+| PROP-001 | Death Notice Terminal | Palm-sized graphite civic handset, rounded off-black glass, seam along the lower edge and muted red glow. Maintain the same handset when it later receives Lin's call. The desktop fold-out terminal is separate hardware. |
+| PROP-002 | Smart Lock Panel | Flush charcoal panel beside a brushed-metal lever, recessed matte palm pad and a single tiny amber/green indicator. Keep the lever, pad and jamb aligned across the entry, crossroads and archive angles. |
+| PROP-003 | Seventh Continuity Clinic Receipt | Encrypted record on the fold-out terminal. Use a blank document plate with space for an authored clinic seal and signature. The HTML layer carries the matching signature, date and status. The record retains its unverified status. |
+
+| ID | Voice identity | Reference direction |
+| --- | --- | --- |
+| VOICE-001 | Lin, bound to CHAR-002 | Original synthetic Mandarin. Conversational, familiar and clear, a slight hesitation before the question about the spare key. Use the exact `lin_call/b1` beat for the 8-second clean OmniVoice reference. Capture the dry voice, then establish the sense of a call through picture and ambience in context. |
+| VOICE-002 | System/Lock Voice, bound to PROP-001 and PROP-002 | Original synthetic Mandarin with quiet administrative certainty, even pitch and unhurried diction. Use the exact `wake/b2` announcement for the 9-second clean OmniVoice reference. Reuse the vocal identity for the lock's shorter confirmation in later coverage. |
+
+For each approved reference, record the local file, revision, SHA-256, provenance and rights. For voice include the transcript, language and local OmniVoice model revision. Keep both references speech-only and free of room effects.
+
+## Full-slice shot coverage
+
+Each `EP01-Sxx` ID maps to one authored scene. Keyframes are composition anchors and still fallbacks. Consistency notes identify the approved angle, identity or lighting to preserve if an edit is commissioned. Later H3 coverage is subject to pilot review and separate authorization.
+
+| Shot / scene | Planned keyframes and action | Consistency edit and prop references | Voice / H3 scope |
+| --- | --- | --- | --- |
+| EP01-S01 · `wake` · 06:42 | `EP01-S01-KF01` bedside POV toward the blank red-glowing handset. Keep linen and the resting cuff low in frame. Hold for the first hint of distant rail. | **Batch Nano Banana edit.** Edit the LOC-001 base plate using CHAR-001 wrist and cuff geometry. Preserve blinds, nightstand and PROP-001 placement. | **Pilot** `EP01-S01-VID01`, 5 s native ambience. VOICE-002 system notice belongs to later coverage. |
+| EP01-S02 · `terminal_check` · 06:44 | `EP01-S02-KF01` medium desk POV with the fold-out screen and entry passage in view. Hold on the blank screen for the two authored log layers. | Derive from LOC-002 with the same hinge, mug and light direction. PROP-002 and PROP-003 are evidence sources whose inspectable details appear when the route exposes them. | Later ambient desk insert. Narration stays in authored captions. |
+| EP01-S03 · `door_anomaly` · 06:46 | `EP01-S03-KF01` tight interior panel and lever. Keep the viewing axis as the handset vibrates off frame. The exit entry and its empty return row are HTML. | Use the LOC-003 mounting angle and PROP-002 crop. Keep the jamb and amber indicator fixed. PROP-001 supplies the call vibration. | Later ambient lock insert with device vibration. The log is authored evidence text. |
+| EP01-S04 · `clinic_clue` · 06:47 | `EP01-S04-KF01` oblique close-up on the cached document area. Let the inbound call take focus after the save beat. | Match the LOC-002 fold-out hinge and screen reflections. Composite PROP-003 beneath the authored receipt details. | Later ambient desk coverage with the call cue. The receipt is authored evidence text. |
+| EP01-S05 · `lin_call` · 06:49 | `EP01-S05-KF01` apartment-side handset and faint window reflection. The caller-side medium close-up in CHAR-002 is the image anchor for the isolated pilot insert. | Match LOC-002, CHAR-001 and PROP-001 in the apartment plate. Preserve Lin's face, collar and clear mouth from CHAR-002 in caller-side coverage. Keep call waveforms in HTML. | **Pilot** `EP01-S05-VID01`, 10 s native reference dialogue, VOICE-001, exact `b1`. Later apartment-side coverage retains the voice-call framing and uses VOICE-001 for `b3`. |
+| EP01-S06 · `crossroads` · 06:53 | `EP01-S06-KF01` closed door at eye height. A strip of corridor light appears under it with an elevator chime and measured footsteps. | Relight LOC-003 while holding the lock position, PROP-002 hardware and door axis. Show progress and meeting coordinates according to authored state. | Later ambient threshold shot. The approaching person stays outside frame. |
+| EP01-S07 · `ending_archive` · 06:55 | `EP01-S07-KF01` low POV on the released storage card and the locked threshold. `EP01-S07-KF02` tighter on the lever as it starts to lower. Cut before a face reveal. | Match LOC-003, PROP-002 and CHAR-001 grip. Suggest CHAR-003 at most with a soft under-door shadow. Use HTML for the warning. | Later native reference dialogue with VOICE-002. The spoken lock confirmation is the quoted portion of `b2`; the following narration remains authored text. |
+| EP01-S08 · `ending_meeting` · 06:56 | `EP01-S08-KF01` medium on Lin under the canopy as the look passes beyond the camera. `EP01-S08-KF02` reverse across the crossing to the Duplicate under the far signal. | Reuse CHAR-002 wardrobe and expression anchors, LOC-004 crossing axis and CHAR-003 silhouette. Crop Lin's grip and keep the distant hand below readable detail pending key continuity review. | Later native reference dialogue with VOICE-001, exact `b2`. Keep the far figure silent. |
+
+**Story decision for agy and the owner.** The `ending_meeting` placeholder caption puts a spare key in Lin's hand, while `b2` says the figure across the street has that spare key. Confirm intended possession and whether two keys are visible before approving either insert.
+
+## Two-shot 768P pilot
+
+Two proposed 16:9 jobs total 15 output seconds. The draft resolution is specified here and in the shot briefs because the request schema has no resolution field. The wake shot tests stable hand geometry, low-light consistency and a native ambience stream. The isolated caller-side insert tests one visible speaker with a canonical image and one clean reference voice. It conveys Lin's reaction without exposing the Duplicate or settling Lin's location. Wider branch coverage, a second speaking sample for cross-shot comparison, final resolution and integration each require later review.
+
+agy confirms direct Metaso MiniMax-H3 mode, reference support, fetch acceptance, owner-approved assets, private OSS upload, total cost and attempt ceiling before submission. For the caller-side insert, stage the approved CHAR-002 image and VOICE-001 audio via private signed GET references, with image and audio in their verified reference roles. Preserve the resulting native audio. Record actual task IDs, hashes, stream and duration checks, costs and review results. Compare the speaking shot to the exact authored line and the canonical sample for words, speaker, timbre and lip sync. Use the original stills and authored captions as the playable fallback during review.

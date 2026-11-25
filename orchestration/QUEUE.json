@@ -1,5 +1,5 @@
 {
-  "authorized_phase": 1,
+  "authorized_phase": 2,
   "tasks": [
     {
       "id": "INIT-001",
@@ -130,7 +130,7 @@
         "Create original visual bible, actor/location IDs, shot list and English prompts; owner approves references and scope",
         "No external generation without specific approval"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "IMG-202",
@@ -148,7 +148,7 @@
         "Produce approved actor references, locations, storyboard and keyframes; include actual files, hashes, source and continuity review",
         "If Codex image tool unavailable, report blocked; owner may manually supply ChatGPT ImageGen files with provenance; no paid alternative automatically"
       ],
-      "status": "pending"
+      "status": "in_progress"
     },
     {
       "id": "IMG-205",
@@ -200,7 +200,7 @@
         "WAV/MP3 speech references 2–15s each, max 3 clips and 15s total per request; verify actual Metaso limits; no paid calls",
         "No final speaking video before approved voice assets"
       ],
-      "status": "pending"
+      "status": "in_progress"
     },
     {
       "id": "OSS-207",
