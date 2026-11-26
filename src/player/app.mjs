@@ -1,6 +1,8 @@
 // Browser entrypoint for the local offline interactive-cinema player.
 
 import { createPlayerController } from './controller.mjs';
+import { createBrowserBgmAdapter } from './bgm-engine.mjs';
+import { createBrowserVoiceAdapter } from './voice-engine.mjs';
 
 const RELIABILITY_LABEL = {
   verified: '已核实',
@@ -28,9 +30,25 @@ async function boot() {
     return;
   }
 
+  let musicCues = null;
+  try {
+    const cueRes = await fetch('./episodes/01/music-cues.json', { cache: 'no-store' });
+    if (cueRes.ok) musicCues = await cueRes.json();
+  } catch {
+    // Missing optional BGM cue sheet degrades cleanly to silence.
+  }
+
   const controller = createPlayerController({
     episode,
-    storage: window.localStorage
+    storage: window.localStorage,
+    musicCues
+  });
+
+  const bgmAdapter = createBrowserBgmAdapter({
+    onError: () => controller.reportBgmError()
+  });
+  const voiceAdapter = createBrowserVoiceAdapter({
+    onError: () => controller.reportVoiceError()
   });
 
   let timerId = null;
@@ -49,6 +67,8 @@ async function boot() {
 
   function render(vm) {
     scheduleBeat(vm);
+    bgmAdapter.sync(vm.bgm);
+    voiceAdapter.sync(vm.voice);
 
     const trustText = vm.trust > 0 ? `+${vm.trust}` : `${vm.trust}`;
     const bannerHtml = vm.banner
@@ -209,6 +229,8 @@ async function boot() {
   }
 
   root.addEventListener('click', (event) => {
+    bgmAdapter.unlock();
+    voiceAdapter.unlock();
     const target = event.target.closest('[data-action], [data-choice]');
     if (!target) return;
     if (target.dataset.choice) {

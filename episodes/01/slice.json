@@ -2,7 +2,7 @@
   "id": "ep01-slice",
   "version": 1,
   "title": "存在悖论 · 第一章：查无此人",
-  "subtitle": "Phase 2 试拍素材接入版（真图 + 768P 原生音画视频）",
+  "subtitle": "Phase 2 完整试拍版（真图 + 768P 原生音画视频 + Suno 配乐 + IndexTTS-2.5 配音）",
   "startScene": "wake",
   "evidence": [
     {
@@ -53,19 +53,22 @@
           "id": "b1",
           "speaker": "旁白",
           "text": "2042年11月25日，清晨六点四十二分。你在熟悉的公寓醒来，窗外只有薄雾和远处的轻轨低鸣。",
-          "durationMs": 3200
+          "durationMs": 9146,
+          "audio": "./assets/generated/voice/ep01-wake-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "市政身份终端",
           "text": "【系统通告】您的公民身份编号已于 72 小时前完成永久注销。注销原因：自然人已死亡。",
-          "durationMs": 3400
+          "durationMs": 7393,
+          "audio": "./assets/generated/voice/ep01-wake-b2.mp3"
         },
         {
           "id": "b3",
           "speaker": "旁白",
           "text": "你的支付权限、门禁同步和医保通道全部显示灰色锁定。客厅方向，玄关门锁的同步指示灯正在缓慢闪烁。",
-          "durationMs": 3400
+          "durationMs": 9668,
+          "audio": "./assets/generated/voice/ep01-wake-b3.mp3"
         }
       ],
       "choices": [
@@ -76,9 +79,13 @@
           "target": "terminal_check",
           "requiresEvidence": [],
           "effects": {
-            "evidence": ["death_notice"],
+            "evidence": [
+              "death_notice"
+            ],
             "trustDelta": 0,
-            "flags": ["inspected_first"]
+            "flags": [
+              "inspected_first"
+            ]
           }
         },
         {
@@ -90,7 +97,9 @@
           "effects": {
             "evidence": [],
             "trustDelta": 1,
-            "flags": ["called_lin_first"]
+            "flags": [
+              "called_lin_first"
+            ]
           }
         }
       ]
@@ -113,13 +122,15 @@
           "id": "b1",
           "speaker": "旁白",
           "text": "注销回执的签发时间是三天前凌晨三点十七分。可你努力回想，那晚之后到今天清晨之间的记忆，像被整段抽空了一样模糊。",
-          "durationMs": 3600
+          "durationMs": 11189,
+          "audio": "./assets/generated/voice/ep01-terminal_check-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "旁白",
           "text": "桌面终端同时亮起两条本地异常：玄关门锁有一条未上传云端的离线掌纹日志；另有一份带诊所徽标的加密回执尚未自动销毁。",
-          "durationMs": 3600
+          "durationMs": 10945,
+          "audio": "./assets/generated/voice/ep01-terminal_check-b2.mp3"
         }
       ],
       "choices": [
@@ -130,9 +141,13 @@
           "target": "door_anomaly",
           "requiresEvidence": [],
           "effects": {
-            "evidence": ["smart_lock_log"],
+            "evidence": [
+              "smart_lock_log"
+            ],
             "trustDelta": 0,
-            "flags": ["checked_lock"]
+            "flags": [
+              "checked_lock"
+            ]
           }
         },
         {
@@ -142,9 +157,13 @@
           "target": "clinic_clue",
           "requiresEvidence": [],
           "effects": {
-            "evidence": ["clinic_receipt"],
+            "evidence": [
+              "clinic_receipt"
+            ],
             "trustDelta": 0,
-            "flags": ["checked_clinic"]
+            "flags": [
+              "checked_clinic"
+            ]
           }
         }
       ]
@@ -167,13 +186,15 @@
           "id": "b1",
           "speaker": "门锁日志",
           "text": "2042-11-24 22:18:04 —— 主户主掌纹验证通过（置信度 99.8%），方向：离开室内。",
-          "durationMs": 3200
+          "durationMs": 9715,
+          "audio": "./assets/generated/voice/ep01-door_anomaly-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "旁白",
           "text": "在那之后，没有任何开门进入的记录。你此刻正站在反锁的室内，手机忽然震动起来——来电显示：林。",
-          "durationMs": 3400
+          "durationMs": 8751,
+          "audio": "./assets/generated/voice/ep01-door_anomaly-b2.mp3"
         }
       ],
       "choices": [
@@ -196,9 +217,13 @@
           "target": "clinic_clue",
           "requiresEvidence": [],
           "effects": {
-            "evidence": ["clinic_receipt"],
+            "evidence": [
+              "clinic_receipt"
+            ],
             "trustDelta": -1,
-            "flags": ["delayed_call"]
+            "flags": [
+              "delayed_call"
+            ]
           }
         }
       ]
@@ -221,13 +246,15 @@
           "id": "b1",
           "speaker": "加密回执",
           "text": "机构：第七连续性诊所。项目：个体身份连续性核验。状态：双轨同步已完成，异常体待回收。",
-          "durationMs": 3500
+          "durationMs": 7788,
+          "audio": "./assets/generated/voice/ep01-clinic_clue-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "旁白",
           "text": "签字日期正是身份被注销的那一天。你刚把这份回执存入本地，林的语音通话请求再次切入屏幕。",
-          "durationMs": 3200
+          "durationMs": 8507,
+          "audio": "./assets/generated/voice/ep01-clinic_clue-b2.mp3"
         }
       ],
       "choices": [
@@ -285,11 +312,17 @@
           "label": "直接追问“第七连续性诊所”和三天前的同步记录",
           "hint": "需要已获取【第七连续性诊所回执】",
           "target": "crossroads",
-          "requiresEvidence": ["clinic_receipt"],
+          "requiresEvidence": [
+            "clinic_receipt"
+          ],
           "effects": {
-            "evidence": ["lin_voice_memo"],
+            "evidence": [
+              "lin_voice_memo"
+            ],
             "trustDelta": 2,
-            "flags": ["lin_shaken"]
+            "flags": [
+              "lin_shaken"
+            ]
           }
         },
         {
@@ -299,9 +332,13 @@
           "target": "crossroads",
           "requiresEvidence": [],
           "effects": {
-            "evidence": ["lin_voice_memo"],
+            "evidence": [
+              "lin_voice_memo"
+            ],
             "trustDelta": 1,
-            "flags": ["lin_cooperative"]
+            "flags": [
+              "lin_cooperative"
+            ]
           }
         },
         {
@@ -311,9 +348,13 @@
           "target": "crossroads",
           "requiresEvidence": [],
           "effects": {
-            "evidence": ["death_notice"],
+            "evidence": [
+              "death_notice"
+            ],
             "trustDelta": -2,
-            "flags": ["lin_alienated"]
+            "flags": [
+              "lin_alienated"
+            ]
           }
         }
       ]
@@ -336,13 +377,15 @@
           "id": "b1",
           "speaker": "旁白",
           "text": "走廊尽头传来电梯抵达本层的轻响。脚步声不疾不徐，正朝你的门牌号走来。",
-          "durationMs": 3200
+          "durationMs": 7230,
+          "audio": "./assets/generated/voice/ep01-crossroads-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "旁白",
           "text": "如果你留在屋内完成离线证据封存，可能会正面撞上拿着备用钥匙回来的人；如果立刻从消防通道撤离去见林，你必须相信林没有出卖你。",
-          "durationMs": 3800
+          "durationMs": 11584,
+          "audio": "./assets/generated/voice/ep01-crossroads-b2.mp3"
         }
       ],
       "choices": [
@@ -351,11 +394,15 @@
           "label": "留守完成离线证据封存，记录门外的一切",
           "hint": "需要已获取【公民死亡注销通知】",
           "target": "ending_archive",
-          "requiresEvidence": ["death_notice"],
+          "requiresEvidence": [
+            "death_notice"
+          ],
           "effects": {
             "evidence": [],
             "trustDelta": 0,
-            "flags": ["chose_archive"]
+            "flags": [
+              "chose_archive"
+            ]
           }
         },
         {
@@ -368,7 +415,9 @@
           "effects": {
             "evidence": [],
             "trustDelta": 1,
-            "flags": ["chose_meeting"]
+            "flags": [
+              "chose_meeting"
+            ]
           }
         },
         {
@@ -380,7 +429,9 @@
           "effects": {
             "evidence": [],
             "trustDelta": -1,
-            "flags": ["chose_solo"]
+            "flags": [
+              "chose_solo"
+            ]
           }
         }
       ]
@@ -403,13 +454,15 @@
           "id": "b1",
           "speaker": "旁白",
           "text": "进度条跳到 100%。你拔下加密存储卡的瞬间，桌面终端弹出一行无发件人警告：“请勿再次查询已注销身份。”",
-          "durationMs": 3600
+          "durationMs": 10144,
+          "audio": "./assets/generated/voice/ep01-ending_archive-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "门锁提示音",
           "text": "“验证通过。欢迎回家。” —— 门把手在清晨的寂静里缓缓下压，门外站着一个拥有你全部合法身份的人。",
-          "durationMs": 3800
+          "durationMs": 8786,
+          "audio": "./assets/generated/voice/ep01-ending_archive-b2.mp3"
         }
       ],
       "ending": {
@@ -437,13 +490,15 @@
           "id": "b1",
           "speaker": "旁白",
           "text": "你沿着消防楼梯冲进湿冷的晨雾。林站在街角便利店檐下，看见你的一刻呼吸明显停了一拍。",
-          "durationMs": 3400
+          "durationMs": 8554,
+          "audio": "./assets/generated/voice/ep01-ending_meeting-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "林",
           "text": "“别回头……千万别惊动他。你现在正站在马路对面的红绿灯下，拿着那把备用钥匙，看着我们。”",
-          "durationMs": 3800
+          "durationMs": 7996,
+          "audio": "./assets/generated/voice/ep01-ending_meeting-b2.mp3"
         }
       ],
       "ending": {
