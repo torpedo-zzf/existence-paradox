@@ -1,6 +1,6 @@
-// Browser entrypoint for the minimalist full-bleed interactive-cinema player.
-// Maintains a persistent media layer (never restarts <video> on beat changes),
-// renders diegetic scene overlays, and syncs separate BGM + IndexTTS voice tracks.
+// Browser entrypoint for the GTA/Rockstar-inspired full-bleed interactive-cinema player.
+// Decluttered corner HUD, scene-mood color fusion, persistent media stage (zero <video>
+// restart on beat changes), inline Rockstar-style subtitles, and bottom tactical menu sheet.
 
 import { createPlayerController } from './controller.mjs';
 import { createBrowserBgmAdapter } from './bgm-engine.mjs';
@@ -12,54 +12,46 @@ const RELIABILITY_LABEL = {
   contradictory: '存在矛盾'
 };
 
-const DIEGETIC_OVERLAYS = {
+const SCENE_FEED = {
   wake: {
-    tone: 'crimson',
-    eyebrow: 'MUNICIPAL ID // NOTICE',
+    kicker: 'ID ALERT // 72H',
     title: '公民身份已永久注销',
-    meta: '签发：72H 前 · 原因：自然人已死亡'
+    sub: '原因：自然人已死亡'
   },
   terminal_check: {
-    tone: 'amber',
-    eyebrow: 'LOCAL CACHE // 2 ANOMALIES',
-    title: '桌面折叠终端 · 未同步日志',
-    meta: '01 玄关离线掌纹记录 · 02 诊所加密回执'
+    kicker: 'LOCAL CACHE',
+    title: '2 项未同步异常',
+    sub: '玄关掌纹日志 · 诊所加密回执'
   },
   door_anomaly: {
-    tone: 'crimson',
-    eyebrow: 'SMART LOCK // BIOMETRIC LOG',
-    title: '22:18:04 · 掌纹验证通过（99.8%）',
-    meta: '方向：离开室内 · 后续无重新进入记录'
+    kicker: 'BIOMETRIC LOG',
+    title: '22:18 掌纹验证 99.8%',
+    sub: '离开室内 · 无重新进入记录'
   },
   clinic_clue: {
-    tone: 'amber',
-    eyebrow: 'SEVENTH CONTINUITY CLINIC',
-    title: '个体身份连续性核验回执',
-    meta: '状态：双轨同步已完成 · 异常体待回收'
+    kicker: 'CONTINUITY CLINIC',
+    title: '双轨同步已完成',
+    sub: '状态：异常体待回收'
   },
   lin_call: {
-    tone: 'cyan',
-    eyebrow: 'E2EE VIDEO // LIVE CALL',
-    title: '加密视频线路 · 林',
-    meta: '00:08 · 信号稳定 · 原生音画'
+    kicker: 'E2EE LIVE CALL',
+    title: '来电 · 林',
+    sub: '加密视频线路已接通'
   },
   crossroads: {
-    tone: 'crimson',
-    eyebrow: 'CORRIDOR SENSOR // FLOOR 14',
+    kicker: 'FLOOR 14 // ALERT',
     title: '电梯已抵达本层',
-    meta: '脚步声逼近玄关 · 请立即抉择'
+    sub: '脚步声逼近玄关'
   },
   ending_archive: {
-    tone: 'amber',
-    eyebrow: 'EPILOGUE // ROUTE A',
+    kicker: 'ROUTE A // LOCKED',
     title: '静默封存',
-    meta: '离线证据已写入 · 门锁验证通过'
+    sub: '离线证据已写入'
   },
   ending_meeting: {
-    tone: 'cyan',
-    eyebrow: 'EPILOGUE // ROUTE B',
+    kicker: 'ROUTE B // ESCAPE',
     title: '街角双影',
-    meta: '消防通道撤离 · 街角目击'
+    sub: '消防通道撤离'
   }
 };
 
@@ -111,57 +103,57 @@ async function boot() {
     onError: () => controller.reportVoiceError()
   });
 
-  // Mount persistent DOM shell once so <video> is never destroyed on beat advance
   root.innerHTML = `
-    <div class="cinema-stage" id="cinema-stage">
+    <div class="cinema-stage" id="cinema-stage" data-mood="unease">
       <div class="media-layer" id="media-layer"></div>
       <div class="cinema-vignette" aria-hidden="true"></div>
+      <div class="cinema-mood-wash" aria-hidden="true"></div>
       <div class="cinema-grain" aria-hidden="true"></div>
-      <div class="diegetic-layer" id="diegetic-layer"></div>
-      <header class="hud-top" id="hud-top"></header>
+
+      <header class="hud-top">
+        <div class="gta-feed" id="gta-feed"></div>
+        <div class="gta-corner-right" id="gta-corner-right"></div>
+      </header>
+
       <div id="toast-slot"></div>
       <section class="hud-bottom" id="hud-bottom"></section>
-      <div id="dossier-slot"></div>
+      <div class="edge-progress" aria-hidden="true"><div class="edge-progress-fill" id="edge-fill"></div></div>
+      <div id="sheet-slot"></div>
+
       <div class="title-gate" id="title-gate">
-        <div class="gate-eyebrow">EPISODE 01 // 2042-11-25</div>
+        <div class="gate-slash" aria-hidden="true"></div>
+        <div class="gate-eyebrow">CHAPTER 01 // 2042-11-25</div>
         <h1 class="gate-title">存在悖论</h1>
-        <div class="gate-chapter">第一章 · 查无此人</div>
-        <button type="button" class="cta-primary" data-action="enter-cinema">进入章节</button>
-        <div class="gate-note">建议开启声音 · 点击画面或按空格推进</div>
+        <div class="gate-chapter">查无此人 · NO SUCH PERSON</div>
+        <button type="button" class="gate-start-btn" data-action="enter-cinema">进入章节 ▸</button>
+        <div class="gate-note">建议开启声音 · 点击画面推进剧情</div>
       </div>
     </div>
   `;
 
   const stageEl = document.getElementById('cinema-stage');
   const mediaLayerEl = document.getElementById('media-layer');
-  const diegeticLayerEl = document.getElementById('diegetic-layer');
-  const hudTopEl = document.getElementById('hud-top');
+  const gtaFeedEl = document.getElementById('gta-feed');
+  const cornerRightEl = document.getElementById('gta-corner-right');
   const toastSlotEl = document.getElementById('toast-slot');
   const hudBottomEl = document.getElementById('hud-bottom');
-  const dossierSlotEl = document.getElementById('dossier-slot');
+  const edgeFillEl = document.getElementById('edge-fill');
+  const sheetSlotEl = document.getElementById('sheet-slot');
   const titleGateEl = document.getElementById('title-gate');
 
   let entered = false;
+  let menuOpen = false;
   let timerId = null;
-  let idleTimerId = null;
   let mountedMediaKey = null;
   let lastSceneId = null;
   let sceneIndexParity = 0;
-
-  function bumpIdleTimer() {
-    stageEl.classList.remove('hud-idle');
-    if (idleTimerId) clearTimeout(idleTimerId);
-    idleTimerId = setTimeout(() => {
-      if (entered) stageEl.classList.add('hud-idle');
-    }, 3200);
-  }
 
   function scheduleBeat(vm) {
     if (timerId) {
       clearTimeout(timerId);
       timerId = null;
     }
-    if (entered && vm.isPlaying && !vm.isLastBeat && !vm.journalOpen) {
+    if (entered && vm.isPlaying && !vm.isLastBeat && !vm.journalOpen && !menuOpen) {
       timerId = setTimeout(() => {
         controller.advanceBeat();
       }, vm.beat.durationMs);
@@ -169,15 +161,17 @@ async function boot() {
   }
 
   function syncMediaLayer(vm) {
+    stageEl.dataset.mood = vm.scene.mood || 'unease';
     const mediaKey = `${vm.scene.id}|${vm.mediaFallbackActive ? 'fb' : vm.scene.media.src}|${vm.voice?.replayToken ?? 0}`;
+
     if (mediaKey !== mountedMediaKey) {
       mountedMediaKey = mediaKey;
       sceneIndexParity = (sceneIndexParity + 1) % 2;
-
       mediaLayerEl.classList.add('is-fading');
+
       if (vm.mediaFallbackActive) {
         mediaLayerEl.innerHTML = `
-          <div class="stage-placeholder palette-${escapeHtml(vm.scene.media.palette || 'cold-slate')}">
+          <div class="stage-placeholder">
             <div class="fallback-caption">${escapeHtml(vm.scene.media.caption)}</div>
           </div>`;
       } else if (vm.scene.media.type === 'video') {
@@ -188,9 +182,7 @@ async function boot() {
         const v = mediaLayerEl.querySelector('video');
         if (v) {
           v.addEventListener('error', () => controller.reportMediaError(), { once: true });
-          if (entered && vm.isPlaying) {
-            v.play().catch(() => {});
-          }
+          if (entered && vm.isPlaying && !menuOpen) v.play().catch(() => {});
         }
       } else {
         const driftClass = sceneIndexParity === 0 ? 'drift-a' : 'drift-b';
@@ -201,110 +193,99 @@ async function boot() {
         if (img) img.addEventListener('error', () => controller.reportMediaError(), { once: true });
       }
 
-      requestAnimationFrame(() => {
-        mediaLayerEl.classList.remove('is-fading');
-      });
+      requestAnimationFrame(() => mediaLayerEl.classList.remove('is-fading'));
     } else {
       const v = mediaLayerEl.querySelector('video');
       if (v) {
         v.muted = Boolean(vm.muted);
-        if (entered && vm.isPlaying && v.paused && !v.ended) {
+        if (entered && vm.isPlaying && !menuOpen && v.paused && !v.ended) {
           v.play().catch(() => {});
-        } else if ((!entered || !vm.isPlaying) && !v.paused) {
+        } else if ((!entered || !vm.isPlaying || menuOpen) && !v.paused) {
           v.pause();
         }
       }
     }
   }
 
-  function syncDiegeticLayer(vm) {
+  function syncSceneFeed(vm) {
     if (vm.scene.id === lastSceneId) return;
     lastSceneId = vm.scene.id;
-    const spec = DIEGETIC_OVERLAYS[vm.scene.id];
+    const spec = SCENE_FEED[vm.scene.id];
     if (!spec) {
-      diegeticLayerEl.innerHTML = '';
+      gtaFeedEl.innerHTML = '';
       return;
     }
-    const dotClass = spec.tone === 'cyan' ? 'cyan' : spec.tone === 'amber' ? 'amber' : '';
-    diegeticLayerEl.innerHTML = `
-      <aside class="diegetic-card tone-${escapeHtml(spec.tone)}">
-        <div class="diegetic-eyebrow"><i class="pulse-dot ${dotClass}"></i>${escapeHtml(spec.eyebrow)}</div>
-        <div class="diegetic-title">${escapeHtml(spec.title)}</div>
-        <div class="diegetic-meta">${escapeHtml(spec.meta)}</div>
-      </aside>
-    `;
+    gtaFeedEl.innerHTML = `
+      <div class="gta-alert-slab">
+        <div class="gta-alert-kicker"><i class="live-dot"></i>${escapeHtml(spec.kicker)}</div>
+        <div class="gta-alert-title">${escapeHtml(spec.title)}</div>
+        <div class="gta-alert-sub">${escapeHtml(spec.sub)}</div>
+      </div>`;
   }
 
   function render(vm) {
     scheduleBeat(vm);
     syncMediaLayer(vm);
-    syncDiegeticLayer(vm);
+    syncSceneFeed(vm);
 
     if (entered) {
-      bgmAdapter.sync(vm.bgm);
-      voiceAdapter.sync(vm.voice);
+      bgmAdapter.sync(menuOpen ? { ...vm.bgm, mode: 'paused', targetGain: 0 } : vm.bgm);
+      voiceAdapter.sync(menuOpen ? { ...vm.voice, mode: 'paused' } : vm.voice);
     }
 
+    const timePart = (vm.scene.timecode.split(' ')[1] || vm.scene.timecode).trim();
+    const shortLoc = vm.scene.location.split('·').pop().trim();
     const trustText = vm.trust > 0 ? `+${vm.trust}` : `${vm.trust}`;
 
-    hudTopEl.innerHTML = `
-      <div class="hud-scene-meta">
-        <span class="hud-timecode">${escapeHtml(vm.scene.timecode.split(' ')[1] || vm.scene.timecode)}</span>
-        <span class="hud-divider" aria-hidden="true"></span>
-        <span class="hud-location">${escapeHtml(vm.scene.location)}</span>
+    cornerRightEl.innerHTML = `
+      <div class="gta-status-readout">
+        <div class="gta-clock">${escapeHtml(timePart)}</div>
+        <div class="gta-zone">${escapeHtml(shortLoc)}</div>
       </div>
-      <div class="hud-actions">
-        <button type="button" class="hud-btn has-badge" data-action="toggle-journal">档案<span class="count">${vm.evidence.length}/${vm.totalEvidenceCount}</span></button>
-        <button type="button" class="hud-btn" data-action="toggle-play">${vm.isPlaying ? '暂停' : '继续'}</button>
-        <button type="button" class="hud-btn" data-action="replay-scene">重播</button>
-        <button type="button" class="hud-btn" data-action="toggle-subtitles">${vm.subtitlesEnabled ? '字幕开' : '字幕关'}</button>
-        <button type="button" class="hud-btn" data-action="toggle-mute">${vm.muted ? '已静音' : '声音'}</button>
-        <button type="button" class="hud-btn" data-action="restart-keep">重开</button>
+      <div class="gta-icon-row">
+        <button type="button" class="gta-icon-btn accent" data-action="toggle-journal" aria-label="物证档案">
+          档案 <span class="badge-num">${vm.evidence.length}/${vm.totalEvidenceCount}</span>
+        </button>
+        <button type="button" class="gta-icon-btn" data-action="toggle-menu" aria-label="菜单">≡</button>
       </div>
     `;
 
     toastSlotEl.innerHTML = vm.banner
       ? `<div class="toast-banner" role="status">
            <span>${escapeHtml(vm.banner)}</span>
-           <button type="button" class="toast-close" data-action="dismiss-banner">关闭</button>
+           <button type="button" class="toast-close" data-action="dismiss-banner">OK</button>
          </div>`
       : '';
 
     const progressPct = Math.round(((vm.beatIndex + 1) / Math.max(1, vm.beatCount)) * 100);
+    edgeFillEl.style.width = `${progressPct}%`;
+
     const subtitleHtml = vm.subtitlesEnabled
-      ? `<div class="subtitle-wrap" aria-live="polite">
-           <div class="speaker-tag ${getSpeakerClass(vm.beat.speaker)}">${escapeHtml(vm.beat.speaker)}</div>
-           <p class="subtitle-line">${escapeHtml(vm.beat.text)}</p>
-           ${
-             !vm.isLastBeat
-               ? `<div class="beat-bar">
-                    <div class="beat-track"><div class="beat-fill" style="width:${progressPct}%"></div></div>
-                    <span class="beat-hint">轻触画面继续 · ${vm.beatIndex + 1}/${vm.beatCount}</span>
-                  </div>`
-               : ''
-           }
+      ? `<div class="gta-subtitle" aria-live="polite">
+           <p class="gta-subtitle-line"><span class="gta-speaker ${getSpeakerClass(vm.beat.speaker)}">${escapeHtml(vm.beat.speaker)}：</span>${escapeHtml(vm.beat.text)}</p>
+           ${!vm.isLastBeat ? `<div class="gta-tap-cue">TAP TO CONTINUE</div>` : ''}
          </div>`
-      : `<div class="subtitle-wrap"><div class="subtitle-muted">字幕已隐藏（按 C 开启）</div></div>`;
+      : '';
 
     let interactionHtml = '';
     if (vm.isLastBeat && vm.scene.ending) {
       interactionHtml = `
         <div class="ending-panel">
-          <div class="ending-kicker">EPISODE 01 COMPLETE · ENDINGS ${vm.completedEndings.length}/${vm.totalEndings}</div>
+          <div class="ending-kicker">CHAPTER COMPLETE · ${vm.completedEndings.length}/${vm.totalEndings}</div>
           <h2>${escapeHtml(vm.scene.ending.title)}</h2>
           <p>${escapeHtml(vm.scene.ending.summary)}</p>
           <div class="ending-actions">
-            <button type="button" class="cta-primary" data-action="restart-keep">探索另一结局</button>
-            <button type="button" class="cta-ghost" data-action="restart-full">重置全部存档</button>
+            <button type="button" class="gta-cta" data-action="restart-keep">探索另一结局</button>
+            <button type="button" class="gta-cta-ghost" data-action="restart-full">重置存档</button>
           </div>
         </div>`;
     } else if (vm.isLastBeat) {
       const availHtml = vm.availableChoices
         .map(
           (c, i) => `
-            <button type="button" class="choice-card" data-choice="${escapeHtml(c.id)}">
-              <span class="choice-key">${i + 1}</span>
-              <span class="choice-text">
+            <button type="button" class="choice-strip" data-choice="${escapeHtml(c.id)}">
+              <span class="choice-num">0${i + 1}</span>
+              <span class="choice-body">
                 <strong>${escapeHtml(c.label)}</strong>
                 ${c.hint ? `<small>${escapeHtml(c.hint)}</small>` : ''}
               </span>
@@ -315,9 +296,9 @@ async function boot() {
       const lockedHtml = vm.lockedChoices
         .map(
           ({ choice }) => `
-            <div class="choice-card is-locked" aria-disabled="true">
-              <span class="choice-key">×</span>
-              <span class="choice-text">
+            <div class="choice-strip is-locked" aria-disabled="true">
+              <span class="choice-num">LOCK</span>
+              <span class="choice-body">
                 <strong>${escapeHtml(choice.label)}</strong>
                 <small>${escapeHtml(choice.hint || '线索不足')}</small>
               </span>
@@ -345,24 +326,46 @@ async function boot() {
                 </article>`
             )
             .join('')
-        : '<p class="empty-clue">尚未收集到关键物证。检查屋内终端或与林核对细节以解锁档案。</p>';
+        : '<p class="empty-clue">尚未收集关键物证。检查屋内终端或与林核对细节以解锁档案。</p>';
 
-      dossierSlotEl.innerHTML = `
-        <div class="drawer-backdrop" data-action="close-journal">
-          <aside class="dossier-drawer" role="dialog" aria-modal="true" aria-label="证据档案" onclick="event.stopPropagation()">
-            <header class="drawer-head">
-              <h2>证据档案 // ${vm.evidence.length}/${vm.totalEvidenceCount}</h2>
-              <button type="button" class="hud-btn" data-action="close-journal">关闭</button>
+      sheetSlotEl.innerHTML = `
+        <div class="sheet-backdrop" data-action="close-sheets">
+          <aside class="game-sheet" role="dialog" aria-modal="true" aria-label="物证档案" onclick="event.stopPropagation()">
+            <header class="sheet-head">
+              <h2>CASE FILE // ${vm.evidence.length}/${vm.totalEvidenceCount}</h2>
+              <button type="button" class="sheet-close" data-action="close-sheets">ESC</button>
             </header>
-            <div class="drawer-stats">
-              <div class="stat-box"><span>LIN TRUST</span><strong>${escapeHtml(trustText)}</strong></div>
-              <div class="stat-box"><span>ENDINGS</span><strong>${vm.completedEndings.length} / ${vm.totalEndings}</strong></div>
+            <div class="sheet-stats">
+              <div class="stat-tile"><span>LIN TRUST</span><strong>${escapeHtml(trustText)}</strong></div>
+              <div class="stat-tile"><span>ENDINGS</span><strong>${vm.completedEndings.length} / ${vm.totalEndings}</strong></div>
             </div>
             <div class="clue-list">${itemsHtml}</div>
           </aside>
         </div>`;
+    } else if (menuOpen) {
+      sheetSlotEl.innerHTML = `
+        <div class="sheet-backdrop" data-action="close-sheets">
+          <aside class="game-sheet" role="dialog" aria-modal="true" aria-label="系统菜单" onclick="event.stopPropagation()">
+            <header class="sheet-head">
+              <h2>PAUSE // SYSTEM</h2>
+              <button type="button" class="sheet-close" data-action="close-sheets">RESUME</button>
+            </header>
+            <div class="sheet-stats">
+              <div class="stat-tile"><span>LIN TRUST</span><strong>${escapeHtml(trustText)}</strong></div>
+              <div class="stat-tile"><span>EVIDENCE</span><strong>${vm.evidence.length} / ${vm.totalEvidenceCount}</strong></div>
+            </div>
+            <div class="menu-grid">
+              <button type="button" class="menu-action ${vm.isPlaying ? 'is-active' : ''}" data-action="toggle-play">${vm.isPlaying ? '⏸ 暂停推进' : '▶ 继续推进'}</button>
+              <button type="button" class="menu-action" data-action="replay-scene">↺ 重播当前场次</button>
+              <button type="button" class="menu-action ${vm.subtitlesEnabled ? 'is-active' : ''}" data-action="toggle-subtitles">${vm.subtitlesEnabled ? '字幕：开启' : '字幕：关闭'}</button>
+              <button type="button" class="menu-action ${!vm.muted ? 'is-active' : ''}" data-action="toggle-mute">${vm.muted ? '声音：静音' : '声音：开启'}</button>
+              <button type="button" class="menu-action" data-action="restart-keep">重新开始（保留结局）</button>
+              <button type="button" class="menu-action is-danger" data-action="restart-full">清除全部存档</button>
+            </div>
+          </aside>
+        </div>`;
     } else {
-      dossierSlotEl.innerHTML = '';
+      sheetSlotEl.innerHTML = '';
     }
   }
 
@@ -370,7 +373,6 @@ async function boot() {
     if (entered) return;
     entered = true;
     titleGateEl.classList.add('is-hidden');
-    bumpIdleTimer();
     const vm = controller.getViewModel();
     const v = mediaLayerEl.querySelector('video');
     if (v) {
@@ -384,11 +386,7 @@ async function boot() {
     scheduleBeat(vm);
   }
 
-  stageEl.addEventListener('mousemove', bumpIdleTimer, { passive: true });
-  stageEl.addEventListener('touchstart', bumpIdleTimer, { passive: true });
-
   root.addEventListener('click', (event) => {
-    bumpIdleTimer();
     const target = event.target.closest('[data-action], [data-choice]');
     if (target) {
       if (target.dataset.action === 'enter-cinema') {
@@ -400,25 +398,55 @@ async function boot() {
       voiceAdapter.unlock();
 
       if (target.dataset.choice) {
+        menuOpen = false;
         controller.selectChoice(target.dataset.choice);
         return;
       }
       switch (target.dataset.action) {
-        case 'toggle-play': controller.togglePlay(); break;
-        case 'replay-scene': controller.replayScene(); break;
-        case 'toggle-subtitles': controller.toggleSubtitles(); break;
-        case 'toggle-mute': controller.toggleMute(); break;
-        case 'toggle-journal': controller.toggleJournal(); break;
-        case 'close-journal': controller.toggleJournal(false); break;
-        case 'dismiss-banner': controller.dismissBanner(); break;
-        case 'restart-keep': controller.restart({ preserveEndings: true }); break;
-        case 'restart-full': controller.restart({ preserveEndings: false }); break;
+        case 'toggle-menu':
+          menuOpen = !menuOpen;
+          if (menuOpen && controller.getViewModel().journalOpen) controller.toggleJournal(false);
+          else render(controller.getViewModel());
+          break;
+        case 'toggle-journal':
+          menuOpen = false;
+          controller.toggleJournal();
+          break;
+        case 'close-sheets':
+          menuOpen = false;
+          if (controller.getViewModel().journalOpen) controller.toggleJournal(false);
+          else render(controller.getViewModel());
+          break;
+        case 'toggle-play':
+          menuOpen = false;
+          controller.togglePlay();
+          break;
+        case 'replay-scene':
+          menuOpen = false;
+          controller.replayScene();
+          break;
+        case 'toggle-subtitles':
+          controller.toggleSubtitles();
+          break;
+        case 'toggle-mute':
+          controller.toggleMute();
+          break;
+        case 'dismiss-banner':
+          controller.dismissBanner();
+          break;
+        case 'restart-keep':
+          menuOpen = false;
+          controller.restart({ preserveEndings: true });
+          break;
+        case 'restart-full':
+          menuOpen = false;
+          controller.restart({ preserveEndings: false });
+          break;
       }
       return;
     }
 
-    // Clicking anywhere on the open cinema stage advances the beat naturally
-    if (entered && !controller.getViewModel().journalOpen) {
+    if (entered && !menuOpen && !controller.getViewModel().journalOpen) {
       bgmAdapter.unlock();
       voiceAdapter.unlock();
       const vm = controller.getViewModel();
@@ -433,7 +461,13 @@ async function boot() {
       enterCinema();
       return;
     }
-    if (entered && controller.handleKey(event.key)) {
+    if (event.key === 'Escape' && menuOpen) {
+      event.preventDefault();
+      menuOpen = false;
+      render(controller.getViewModel());
+      return;
+    }
+    if (entered && !menuOpen && controller.handleKey(event.key)) {
       event.preventDefault();
     }
   });
