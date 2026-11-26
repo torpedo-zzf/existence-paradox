@@ -51,23 +51,23 @@
       "beats": [
         {
           "id": "b1",
-          "speaker": "旁白",
-          "text": "2042年11月25日，清晨六点四十二分。你在熟悉的公寓醒来，窗外只有薄雾和远处的轻轨低鸣。",
-          "durationMs": 9146,
+          "speaker": "市政终端",
+          "text": "【身份注销通告】您的公民编号已于 72 小时前永久注销。原因：自然人已死亡。",
+          "durationMs": 7358,
           "audio": "./assets/generated/voice/ep01-wake-b1.mp3"
         },
         {
           "id": "b2",
-          "speaker": "市政身份终端",
-          "text": "【系统通告】您的公民身份编号已于 72 小时前完成永久注销。注销原因：自然人已死亡。",
-          "durationMs": 7393,
+          "speaker": "你",
+          "text": "支付、门禁、医保，全都灰了。可我整晚都睡在自己床上。",
+          "durationMs": 5640,
           "audio": "./assets/generated/voice/ep01-wake-b2.mp3"
         },
         {
           "id": "b3",
-          "speaker": "旁白",
-          "text": "你的支付权限、门禁同步和医保通道全部显示灰色锁定。客厅方向，玄关门锁的同步指示灯正在缓慢闪烁。",
-          "durationMs": 9668,
+          "speaker": "你",
+          "text": "客厅门锁的指示灯，正在闪烁。",
+          "durationMs": 3643,
           "audio": "./assets/generated/voice/ep01-wake-b3.mp3"
         }
       ],
@@ -120,16 +120,16 @@
       "beats": [
         {
           "id": "b1",
-          "speaker": "旁白",
-          "text": "注销回执的签发时间是三天前凌晨三点十七分。可你努力回想，那晚之后到今天清晨之间的记忆，像被整段抽空了一样模糊。",
-          "durationMs": 11189,
+          "speaker": "你",
+          "text": "签发时间是三天前凌晨 03:17……那晚之后到今早，我的记忆像被整段切掉了。",
+          "durationMs": 7834,
           "audio": "./assets/generated/voice/ep01-terminal_check-b1.mp3"
         },
         {
           "id": "b2",
-          "speaker": "旁白",
-          "text": "桌面终端同时亮起两条本地异常：玄关门锁有一条未上传云端的离线掌纹日志；另有一份带诊所徽标的加密回执尚未自动销毁。",
-          "durationMs": 10945,
+          "speaker": "终端",
+          "text": "检测到两条未同步本地异常：玄关掌纹离线日志；第七连续性诊所加密回执。",
+          "durationMs": 7439,
           "audio": "./assets/generated/voice/ep01-terminal_check-b2.mp3"
         }
       ],
@@ -184,16 +184,16 @@
       "beats": [
         {
           "id": "b1",
-          "speaker": "门锁日志",
-          "text": "2042-11-24 22:18:04 —— 主户主掌纹验证通过（置信度 99.8%），方向：离开室内。",
-          "durationMs": 9715,
+          "speaker": "门锁系统",
+          "text": "昨晚 22:18，主户主掌纹验证通过（置信度 99.8%）——离开室内。",
+          "durationMs": 7358,
           "audio": "./assets/generated/voice/ep01-door_anomaly-b1.mp3"
         },
         {
           "id": "b2",
-          "speaker": "旁白",
-          "text": "在那之后，没有任何开门进入的记录。你此刻正站在反锁的室内，手机忽然震动起来——来电显示：林。",
-          "durationMs": 8751,
+          "speaker": "你",
+          "text": "之后再没有开门记录。门是从里面反锁的……这时，林的电话打了进来。",
+          "durationMs": 6232,
           "audio": "./assets/generated/voice/ep01-door_anomaly-b2.mp3"
         }
       ],
@@ -245,15 +245,15 @@
         {
           "id": "b1",
           "speaker": "加密回执",
-          "text": "机构：第七连续性诊所。项目：个体身份连续性核验。状态：双轨同步已完成，异常体待回收。",
-          "durationMs": 7788,
+          "text": "第七连续性诊所 · 个体身份核验：双轨同步已完成，异常体待回收。",
+          "durationMs": 6476,
           "audio": "./assets/generated/voice/ep01-clinic_clue-b1.mp3"
         },
         {
           "id": "b2",
-          "speaker": "旁白",
-          "text": "签字日期正是身份被注销的那一天。你刚把这份回执存入本地，林的语音通话请求再次切入屏幕。",
-          "durationMs": 8507,
+          "speaker": "你",
+          "text": "签字笔迹和我一模一样。手机震了——林再次打来。",
+          "durationMs": 5233,
           "audio": "./assets/generated/voice/ep01-clinic_clue-b2.mp3"
         }
       ],
@@ -375,16 +375,16 @@
       "beats": [
         {
           "id": "b1",
-          "speaker": "旁白",
-          "text": "走廊尽头传来电梯抵达本层的轻响。脚步声不疾不徐，正朝你的门牌号走来。",
-          "durationMs": 7230,
+          "speaker": "你",
+          "text": "电梯到了。脚步声不紧不慢，正停在我家门前。",
+          "durationMs": 4839,
           "audio": "./assets/generated/voice/ep01-crossroads-b1.mp3"
         },
         {
           "id": "b2",
-          "speaker": "旁白",
-          "text": "如果你留在屋内完成离线证据封存，可能会正面撞上拿着备用钥匙回来的人；如果立刻从消防通道撤离去见林，你必须相信林没有出卖你。",
-          "durationMs": 11584,
+          "speaker": "你",
+          "text": "留下封存证据，还是走消防通道去见林——只剩最后几秒。",
+          "durationMs": 6197,
           "audio": "./assets/generated/voice/ep01-crossroads-b2.mp3"
         }
       ],
@@ -452,16 +452,16 @@
       "beats": [
         {
           "id": "b1",
-          "speaker": "旁白",
-          "text": "进度条跳到 100%。你拔下加密存储卡的瞬间，桌面终端弹出一行无发件人警告：“请勿再次查询已注销身份。”",
-          "durationMs": 10144,
+          "speaker": "终端",
+          "text": "加密封存完成。警告：请勿再次查询已注销身份。",
+          "durationMs": 5361,
           "audio": "./assets/generated/voice/ep01-ending_archive-b1.mp3"
         },
         {
           "id": "b2",
-          "speaker": "门锁提示音",
-          "text": "“验证通过。欢迎回家。” —— 门把手在清晨的寂静里缓缓下压，门外站着一个拥有你全部合法身份的人。",
-          "durationMs": 8786,
+          "speaker": "门锁",
+          "text": "“验证通过，欢迎回家。”——门把手在寂静里缓缓压下。",
+          "durationMs": 5036,
           "audio": "./assets/generated/voice/ep01-ending_archive-b2.mp3"
         }
       ],
@@ -488,16 +488,16 @@
       "beats": [
         {
           "id": "b1",
-          "speaker": "旁白",
-          "text": "你沿着消防楼梯冲进湿冷的晨雾。林站在街角便利店檐下，看见你的一刻呼吸明显停了一拍。",
-          "durationMs": 8554,
+          "speaker": "你",
+          "text": "我冲出消防通道撞进湿冷晨雾。林站在街角，看见我的瞬间呼吸停了一拍。",
+          "durationMs": 7358,
           "audio": "./assets/generated/voice/ep01-ending_meeting-b1.mp3"
         },
         {
           "id": "b2",
           "speaker": "林",
-          "text": "“别回头……千万别惊动他。你现在正站在马路对面的红绿灯下，拿着那把备用钥匙，看着我们。”",
-          "durationMs": 7996,
+          "text": "“别回头……千万别惊动他。你现在正站在马路对面，拿着备用钥匙，看着我们。”",
+          "durationMs": 7033,
           "audio": "./assets/generated/voice/ep01-ending_meeting-b2.mp3"
         }
       ],
