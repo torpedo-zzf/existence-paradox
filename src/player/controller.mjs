@@ -14,8 +14,10 @@ import {
   loadState,
   resetSave
 } from '../storage/save-store.mjs';
+import { resolveBgmState } from './bgm-engine.mjs';
+import { resolveVoiceState } from './voice-engine.mjs';
 
-export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAVE_KEY }) {
+export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAVE_KEY, musicCues = null }) {
   validateSliceEpisode(episode);
   const loaded = loadState(storage, saveKey, episode);
 
@@ -25,6 +27,10 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
     isPlaying: true,
     subtitlesEnabled: true,
     muted: false,
+    bgmVolume: 1,
+    bgmError: false,
+    voiceError: false,
+    replayToken: 0,
     journalOpen: false,
     mediaError: false,
     banner:
@@ -48,6 +54,23 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
     const isLastBeat = ui.beatIndex >= scene.beats.length - 1;
     const collectedEvidence = episode.evidence.filter((e) => ui.state.evidence.includes(e.id));
     const totalEndings = episode.scenes.filter((s) => Boolean(s.ending)).length;
+    const bgm = resolveBgmState({
+      cueSheet: musicCues,
+      scene,
+      beat,
+      muted: ui.muted,
+      isPlaying: ui.isPlaying,
+      bgmVolume: ui.bgmVolume,
+      bgmError: ui.bgmError
+    });
+    const voice = resolveVoiceState({
+      scene,
+      beat,
+      muted: ui.muted,
+      isPlaying: ui.isPlaying,
+      voiceError: ui.voiceError,
+      replayToken: ui.replayToken
+    });
 
     return {
       episodeTitle: episode.title,
@@ -60,6 +83,9 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
       isPlaying: ui.isPlaying,
       subtitlesEnabled: ui.subtitlesEnabled,
       muted: ui.muted,
+      bgmVolume: ui.bgmVolume,
+      bgm,
+      voice,
       journalOpen: ui.journalOpen,
       mediaFallbackActive: scene.media.type === 'placeholder' || !scene.media.src || ui.mediaError,
       availableChoices: available,
@@ -78,6 +104,7 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
     const scene = getCurrentScene(episode, ui.state);
     if (ui.beatIndex < scene.beats.length - 1) {
       ui.beatIndex += 1;
+      ui.voiceError = false;
       emit();
       return true;
     }
@@ -90,6 +117,8 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
     ui.beatIndex = 0;
     ui.isPlaying = true;
     ui.mediaError = false;
+    ui.voiceError = false;
+    ui.replayToken += 1;
     emit();
   }
 
@@ -109,6 +138,23 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
 
   function toggleMute() {
     ui.muted = !ui.muted;
+    emit();
+  }
+
+  function setBgmVolume(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return;
+    ui.bgmVolume = Math.max(0, Math.min(1, n));
+    emit();
+  }
+
+  function reportBgmError() {
+    ui.bgmError = true;
+    emit();
+  }
+
+  function reportVoiceError() {
+    ui.voiceError = true;
     emit();
   }
 
@@ -133,6 +179,8 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
     ui.beatIndex = 0;
     ui.isPlaying = true;
     ui.mediaError = false;
+    ui.bgmError = false;
+    ui.voiceError = false;
     ui.banner = null;
     saveState(storage, saveKey, episode, ui.state);
     emit();
@@ -143,6 +191,9 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
     ui.beatIndex = 0;
     ui.isPlaying = true;
     ui.mediaError = false;
+    ui.bgmError = false;
+    ui.voiceError = false;
+    ui.replayToken += 1;
     ui.journalOpen = false;
     ui.banner = preserveEndings ? '已重新开始本切片（已解锁结局记录已保留）' : '已重置全部本地进度';
     if (preserveEndings) {
@@ -199,6 +250,9 @@ export function createPlayerController({ episode, storage, saveKey = DEFAULT_SAV
     togglePlay,
     toggleSubtitles,
     toggleMute,
+    setBgmVolume,
+    reportBgmError,
+    reportVoiceError,
     toggleJournal,
     reportMediaError,
     dismissBanner,

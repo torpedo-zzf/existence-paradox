@@ -18,9 +18,12 @@ const staticFiles = [
   'public/styles.css',
   'src/core/runtime.mjs',
   'src/storage/save-store.mjs',
+  'src/player/bgm-engine.mjs',
+  'src/player/voice-engine.mjs',
   'src/player/controller.mjs',
   'src/player/app.mjs',
-  'episodes/01/slice.json'
+  'episodes/01/slice.json',
+  'episodes/01/music-cues.json'
 ];
 
 const slice = JSON.parse(readFileSync(path.join(ROOT, 'episodes/01/slice.json'), 'utf8'));
@@ -30,6 +33,23 @@ for (const scene of slice.scenes) {
     const val = scene.media?.[field];
     if (typeof val === 'string' && val.startsWith('./assets/')) {
       mediaSet.add(val.slice(2));
+    }
+  }
+  for (const beat of scene.beats ?? []) {
+    if (typeof beat.audio === 'string' && beat.audio.startsWith('./assets/')) {
+      mediaSet.add(beat.audio.slice(2));
+    }
+  }
+}
+
+const cueSheetPath = path.join(ROOT, 'episodes/01/music-cues.json');
+if (existsSync(cueSheetPath)) {
+  const cueSheet = JSON.parse(readFileSync(cueSheetPath, 'utf8'));
+  for (const cue of cueSheet.cues ?? []) {
+    if (typeof cue.asset_path === 'string' && cue.asset_path.startsWith('./assets/')) {
+      mediaSet.add(cue.asset_path.slice(2));
+    } else if (typeof cue.asset_path === 'string' && cue.asset_path.startsWith('assets/')) {
+      mediaSet.add(cue.asset_path);
     }
   }
 }

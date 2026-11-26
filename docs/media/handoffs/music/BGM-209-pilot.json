@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "task_id": "BGM-209",
+  "phase": 2,
+  "status": "pilot_pending_owner_listening_approval",
+  "provider": "suno",
+  "transport": "official_mcp_codex_delegated",
+  "mcp_url": "https://api.suno.com/mcp",
+  "controller": "agy",
+  "plan_at_creation": "Pro Plan (monthly, renews 2026-12-20T05:29:53Z)",
+  "usage": {
+    "before": {
+      "credits_remaining": 2450,
+      "monthly_usage": 50,
+      "download_credits_remaining": 14
+    },
+    "after": {
+      "credits_remaining": 2440,
+      "monthly_usage": 60,
+      "download_credits_remaining": 13
+    },
+    "delta": {
+      "generation_credits_spent": 10,
+      "download_credits_spent": 1
+    }
+  },
+  "deliverables": [
+    {
+      "cue_id": "BGM-001",
+      "asset_id": "BGM-001-r1",
+      "song_id": "fc7dbc46-bd0a-4da4-8961-68ac54e2d92f",
+      "rejected_take_id": "4ce8e758-a2e6-40b7-bc1a-767ac823e2bb",
+      "title": "EP01 BGM-001 Identity Motif (Cold Dawn)",
+      "created_at": "2026-11-25T15:53:47Z",
+      "downloaded_at": "2026-11-25T15:55:38Z",
+      "duration_seconds": 44.8,
+      "instrumental": true,
+      "preserve_native_dialogue": true,
+      "master_wav": {
+        "path": "assets/inbox/music/BGM-001.wav",
+        "size_bytes": 8615418,
+        "sha256": "279cd931b49802e4eebcf31c3037f71ad0dbb9db2354257c8540fc85eb857476"
+      },
+      "web_mp3": {
+        "path": "assets/generated/music/BGM-001.mp3",
+        "sha256": "b806dd86269746b1bd242ab02ce1f673cc8e475a0a64d07b042f025130ff033b"
+      },
+      "selection_reason": "Pure instrumental verified by Suno analysis and listen checks; sparse felt piano, restrained analog synth pads, subtle low pulse, smooth fade-out tail without choir-like resonance.",
+      "rights_status": "suno_pro_plan_pilot_pending_owner_listening_approval"
+    }
+  ]
+}

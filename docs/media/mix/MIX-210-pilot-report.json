@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "task_id": "MIX-210",
+  "phase": 2,
+  "generated_by": "scripts/music-qc/run-music-qc.mjs",
+  "tool": {
+    "name": "music-qc",
+    "version": "1.0.0",
+    "network_access": false,
+    "paid_calls": false,
+    "local_only": true
+  },
+  "cue_sheet": "episodes/01/music-cues.json",
+  "policy": {
+    "preserve_native_dialogue": true,
+    "missing_bgm": "silence",
+    "runtime_generation": false
+  },
+  "summary": {
+    "ok": true,
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "silence_fallback": 3
+  },
+  "results": [
+    {
+      "id": "BGM-001",
+      "path": "./assets/generated/music/BGM-001.mp3",
+      "ok": true,
+      "size_bytes": 1076693,
+      "checks": {
+        "file": {
+          "ok": true,
+          "path": "./assets/generated/music/BGM-001.mp3",
+          "size_bytes": 1076693,
+          "is_file": true
+        },
+        "sha256": {
+          "ok": true,
+          "expected": "b806dd86269746b1bd242ab02ce1f673cc8e475a0a64d07b042f025130ff033b",
+          "actual": "b806dd86269746b1bd242ab02ce1f673cc8e475a0a64d07b042f025130ff033b",
+          "match": true
+        },
+        "separate_score": {
+          "ok": true
+        },
+        "audio_stream": {
+          "ok": true,
+          "present": true,
+          "codec": "mp3",
+          "sample_rate": 48000,
+          "channels": 2,
+          "duration_seconds": 44.8
+        },
+        "volume": {
+          "ok": true,
+          "mean_volume_db": -18.5,
+          "max_volume_db": -4.6,
+          "clipping_threshold_db": 0,
+          "silence_threshold_db": -65,
+          "clipping": false,
+          "silent": false
+        },
+        "loop_seam": {
+          "ok": true,
+          "head_mean_db": -41.1,
+          "tail_mean_db": -72.5,
+          "boundary_delta_db": 31.4
+        }
+      },
+      "errors": [],
+      "status": "verified"
+    },
+    {
+      "id": "BGM-002",
+      "path": null,
+      "ok": true,
+      "status": "silence_fallback",
+      "duck_under_dialogue": true,
+      "loop": true,
+      "errors": []
+    },
+    {
+      "id": "BGM-003",
+      "path": null,
+      "ok": true,
+      "status": "silence_fallback",
+      "duck_under_dialogue": true,
+      "loop": true,
+      "errors": []
+    },
+    {
+      "id": "BGM-004",
+      "path": null,
+      "ok": true,
+      "status": "silence_fallback",
+      "duck_under_dialogue": true,
+      "loop": false,
+      "errors": []
+    }
+  ]
+}
